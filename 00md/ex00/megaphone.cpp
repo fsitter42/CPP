@@ -22,7 +22,8 @@ int main(int argc, char *argv[])
     			std::cout << (char)std::toupper((unsigned char)argv[i][j]);
     			j++;
     		}
-    		std::cout << (char)32;
+    		if (i < argc -1)
+    			std::cout << " ";
     		i++;
     	}
     	std::cout << std::endl;
