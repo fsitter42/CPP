@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 13:38:31 by fsitter           #+#    #+#             */
-/*   Updated: 2026/04/27 15:36:26 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/04/27 16:29:41 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Contact
   public:
   	Contact (int i, std::string fn, std::string ln, std::string nn, std::string pn, std::string ds);
 	std::string getFirstName() const;
-	
+	std::string getLastName() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 13:39:11 by fsitter           #+#    #+#             */
-/*   Updated: 2026/04/27 15:59:03 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/04/27 16:29:56 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	main(void)
 	Contact mycontact(0, "Fridolin", "Sitter", "Frido", "0-555-4242", "forty-two");
 
 	std::cout << mycontact.getFirstName() << "\n";
-
+	std::cout << mycontact.getLastName() << "\n";
 	
 }
