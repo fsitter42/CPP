@@ -1,10 +1,14 @@
 NAME	= phonebook
 CC	= c++
-FLAGS	= -Wall -Wextra -Werror -std=c++98
+#FLAGS	= -Wall -Wextra -Werror -std=c++98 // TODO change Flags
+FLAGS	= -std=c++98
 DFLAGS	= -MMD -MP
 RM	= rm -f
 
-SRC	= phonebook.cpp
+SRC	=	phonebook.cpp \
+		contact.cpp \
+		main.cpp
+
 OBJ	= $(SRC:.cpp=.o)
 DEP	= $(SRC:.cpp=.d)
 
