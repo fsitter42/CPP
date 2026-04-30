@@ -6,15 +6,12 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 13:38:31 by fsitter           #+#    #+#             */
-/*   Updated: 2026/04/27 15:27:55 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/05/01 00:46:08 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
-
-#include <cctype>
-#include <iostream>
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 #include "contact.hpp"
 
@@ -22,10 +19,13 @@ class PhoneBook
 {
   private:
 	Contact contacts[8];
-	int _count;
+	size_t _count;
 
   public:
-	void printContact(int index);
+	PhoneBook ();
+  	void addContact(const std::string& fn, const std::string& ln, const std::string& nn, const std::string& pn, const std::string& ds);
+	void printContact(int index) const;
+	void printAll() const;
 };
 
 #endif
