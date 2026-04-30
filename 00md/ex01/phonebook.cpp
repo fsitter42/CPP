@@ -6,11 +6,22 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 13:39:11 by fsitter           #+#    #+#             */
-/*   Updated: 2026/05/01 00:47:12 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/05/01 01:40:47 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+#include <iostream>
+#include <iomanip>
+
+std::string PhoneBook::truncate(const std::string& s) const
+{
+	if (s.length() > 10)
+	{
+		return (s.substr(0, 9) + ".");
+	}
+	return (s);
+}
 
 PhoneBook::PhoneBook () {}
 
@@ -23,11 +34,35 @@ void PhoneBook::addContact(const std::string& fn, const std::string& ln, const s
 	contacts[_count % 8].setSecrect(ds);
 	_count++;
 }
-	void PhoneBook::printContact(int index) const
+void PhoneBook::printContact(int index) const
+{
+	if (index < 0 || index >= 8 || index >= (int)_count)
 	{
-		
+		std::cout << "The index you choose is out of bound.\n";
+		return ;
 	}
-	void PhoneBook::printAll() const
+	std::cout << contacts[index].getFirstName() << "\n";
+	std::cout << contacts[index].getLastName() << "\n";
+	std::cout << contacts[index].getNickName() << "\n";
+	std::cout << contacts[index].getPhoneNum() << "\n";
+	std::cout << contacts[index].getSecrect() << "\n";
+}
+
+void PhoneBook::printAll() const
+{
+	std::cout << std::right;
+	std::cout << "|" << std::setw(10) << "index" << "|";
+	std::cout << std::setw(10) << "first name" << "|";
+	std::cout << std::setw(10) << "last name" << "|";
+	std::cout << std::setw(10) << "nick name" << "|\n";
+	size_t limit = (_count < 8) ? _count : 8;
+	for (size_t i = 0; i < limit; i++)
 	{
-		
+		std::cout << "|";
+		std::cout << std::setw(10) << i << "|";
+		std::cout << std::setw(10) << truncate(contacts[i].getFirstName()) << "|";
+		std::cout << std::setw(10) << truncate(contacts[i].getLastName()) << "|";
+		std::cout << std::setw(10) << truncate(contacts[i].getNickName()) << "|\n";
 	}
+	
+}

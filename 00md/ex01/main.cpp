@@ -6,13 +6,14 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 13:39:11 by fsitter           #+#    #+#             */
-/*   Updated: 2026/05/01 00:47:28 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/05/01 01:45:33 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 #include <cctype>
 #include <iostream>
+#include <iomanip>
 
 
 int	main(void)
@@ -24,9 +25,12 @@ int	main(void)
 	std::cout << greeting << intro << std::endl;
 
 
-	Contact mycontact();
-
-	std::cout << mycontact.getFirstName() << "\n";
-	std::cout << mycontact.getLastName() << "\n";
+	while (true)
+	{
+		std::string input;
+		std::cin >> input;
+		break;
+	}
+	
 	
 }
