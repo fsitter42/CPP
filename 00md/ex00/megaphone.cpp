@@ -3,30 +3,24 @@
 
 int	main(int argc, char *argv[])
 {
-	int	i;
-	int	j;
-
 	if (argc == 1)
 	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
+	    std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+	    return (0);
 	}
-	else
+	size_t i = 1;
+	size_t ac = static_cast<size_t>(argc);
+	while (i < ac)
 	{
-		i = 1;
-		while (i < argc)
+	    size_t j = 0;
+	    while (argv[i][j])
 		{
-			j = 0;
-			while (argv[i][j])
-			{
-				std::cout << (char)std::toupper((unsigned char)argv[i][j]);
-				j++;
-			}
-			if (i < argc - 1)
-				std::cout << " ";
-			i++;
-		}
-		std::cout << std::endl;
-		return (0);
+	        std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(argv[i][j])));
+	        j++;
+	    }
+	    if (i < ac - 1)
+	        std::cout << " ";
+	    i++;
 	}
+	std::cout << '\n';
 }
