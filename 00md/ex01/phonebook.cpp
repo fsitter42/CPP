@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 13:39:11 by fsitter           #+#    #+#             */
-/*   Updated: 2026/05/01 01:40:47 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/05/01 13:32:52 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ std::string PhoneBook::truncate(const std::string& s) const
 	return (s);
 }
 
-PhoneBook::PhoneBook () {}
+PhoneBook::PhoneBook () : _count(0) {}
 
 void PhoneBook::addContact(const std::string& fn, const std::string& ln, const std::string& nn, const std::string& pn, const std::string& ds)
 {
