@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 13:39:11 by fsitter           #+#    #+#             */
-/*   Updated: 2026/05/01 13:32:52 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/05/01 13:48:22 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void PhoneBook::printContact(int index) const
 {
 	if (index < 0 || index >= 8 || index >= (int)_count)
 	{
-		std::cout << "The index you choose is out of bound.\n";
+		std::cout << "No such contact.\n";
 		return ;
 	}
 	std::cout << contacts[index].getFirstName() << "\n";
