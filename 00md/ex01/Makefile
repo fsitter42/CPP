@@ -1,7 +1,7 @@
 NAME	= phonebook
-CC	= c++
-#FLAGS	= -Wall -Wextra -Werror -std=c++98 // TODO change Flags
-FLAGS	= -std=c++98
+CXX	= c++
+#CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 // TODO change Flags
+CXXFLAGS	= -std=c++98
 DFLAGS	= -MMD -MP
 RM	= rm -f
 
@@ -15,10 +15,10 @@ DEP	= $(SRC:.cpp=.d)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(FLAGS) $(DFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(DFLAGS) -c $< -o $@
 	
 -include $(DEP)
 	
