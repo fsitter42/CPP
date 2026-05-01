@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 13:39:11 by fsitter           #+#    #+#             */
-/*   Updated: 2026/05/01 13:48:22 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/05/01 13:52:56 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void PhoneBook::addContact(const std::string& fn, const std::string& ln, const s
 	contacts[_count % 8].setSecrect(ds);
 	_count++;
 }
+
 void PhoneBook::printContact(int index) const
 {
 	if (index < 0 || index >= 8 || index >= (int)_count)
@@ -64,5 +65,4 @@ void PhoneBook::printAll() const
 		std::cout << std::setw(10) << truncate(contacts[i].getLastName()) << "|";
 		std::cout << std::setw(10) << truncate(contacts[i].getNickName()) << "|\n";
 	}
-	
 }
