@@ -1,23 +1,20 @@
-NAME	= phonebook
+NAME	= brainz
 CC	= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 DFLAGS	= -MMD -MP
 RM	= rm -f
 
-SRC	=	phonebook.cpp \
-		contact.cpp \
-		main.cpp
-
+SRC	= megaphone.cpp
 OBJ	= $(SRC:.cpp=.o)
 DEP	= $(SRC:.cpp=.d)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(DFLAGS) -c $< -o $@
+	$(CC) $(FLAGS) $(DFLAGS) -c $< -o $@
 	
 -include $(DEP)
 	
