@@ -4,7 +4,10 @@ FLAGS	= -Wall -Wextra -Werror -std=c++98
 DFLAGS	= -MMD -MP
 RM	= rm -f
 
-SRC	= megaphone.cpp
+SRC	= 	main.cpp \
+		Zombie.cpp \
+		newZombie.cpp \
+		randomChump.cpp
 OBJ	= $(SRC:.cpp=.o)
 DEP	= $(SRC:.cpp=.d)
 
