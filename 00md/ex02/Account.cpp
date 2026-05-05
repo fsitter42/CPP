@@ -6,7 +6,7 @@
 /*   By: a600 <a600@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:36:54 by fsitter           #+#    #+#             */
-/*   Updated: 2026/05/05 23:30:22 by a600             ###   ########.fr       */
+/*   Updated: 2026/05/05 23:42:07 by a600             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,17 @@ void Account::_displayTimestamp(void)
 }
 
 Account::Account( int initial_deposit )
-{}
+{
+	_accountIndex = _nbAccounts;
+	_amount = initial_deposit;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+	_nbAccounts++;
+	_totalAmount += initial_deposit;
+	_displayTimestamp();
+	std::cout << "\n";
+	//[19920104_091532] index:0;amount:42;created
+}
 
 Account::~Account( void )
 {}
@@ -35,5 +45,4 @@ Account::~Account( void )
 int main()
 {
 	Account aa(1);
-	Account::_displayTimestamp();
 }
