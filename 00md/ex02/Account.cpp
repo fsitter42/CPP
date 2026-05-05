@@ -18,3 +18,11 @@ Account::Account( int initial_deposit )
 Account::~Account( void )
 {}
 
+/*
+ * private:
+ * */
+
+static void _displayTimestamp(void)
+{
+	std::cout << gettimeofday();
+}

@@ -76,7 +76,7 @@ static void searchContact(PhoneBook& pb)
 	pb.printAll();
 	std::cout << "Please insert the index of the contact to print: ";
 	std::getline(std::cin, input);
-	if (input.length() == 1 && input[0] >= '0' && input[0] <= '9')
+	if (input.length() == 1 && input[0] >= '0' && input[0] <= '7')
 	{
 		int index = input[0] - 48;
 		pb.printContact(index);
