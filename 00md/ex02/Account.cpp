@@ -6,7 +6,7 @@
 /*   By: a600 <a600@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:36:54 by fsitter           #+#    #+#             */
-/*   Updated: 2026/05/06 00:34:20 by a600             ###   ########.fr       */
+/*   Updated: 2026/05/06 00:37:41 by a600             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int Account::getNbWithdrawals( void )
 
 void	Account::displayAccountsInfos( void )
 {
-	//[19920104_091532] accounts:8;total:12442;deposits:8;withdrawals:6
 	_displayTimestamp();
 	std::cout << "accounts:" << getNbAccounts() << ";total:";
 	std::cout << getTotalAmount() << ";deposits:" << getNbDeposits();
