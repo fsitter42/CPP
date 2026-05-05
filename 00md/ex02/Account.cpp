@@ -6,7 +6,7 @@
 /*   By: a600 <a600@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:36:54 by fsitter           #+#    #+#             */
-/*   Updated: 2026/05/05 23:56:49 by a600             ###   ########.fr       */
+/*   Updated: 2026/05/06 00:34:20 by a600             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,38 @@ Account::~Account( void )
 	std::cout << _amount << ";closed\n";
 }
 
+int Account::getNbAccounts( void )
+{
+	return (_nbAccounts);
+}
+
+int Account::getTotalAmount( void )
+{
+	return (_totalAmount);
+}
+
+int Account::getNbDeposits( void )
+{
+	return (_totalNbDeposits);
+}
+
+int Account::getNbWithdrawals( void )
+{
+	return (_totalNbWithdrawals);
+}
+
+void	Account::displayAccountsInfos( void )
+{
+	//[19920104_091532] accounts:8;total:12442;deposits:8;withdrawals:6
+	_displayTimestamp();
+	std::cout << "accounts:" << getNbAccounts() << ";total:";
+	std::cout << getTotalAmount() << ";deposits:" << getNbDeposits();
+	std::cout << ";withdrawals:" << getNbWithdrawals() << "\n";
+}
+
+
 int main()
 {
 	Account aa(1);
+	Account::displayAccountsInfos();
 }
