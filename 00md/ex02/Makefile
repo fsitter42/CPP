@@ -1,5 +1,5 @@
 NAME	= ex02
-CC	= c++
+CXX	= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 DFLAGS	= -MMD -MP
 RM	= rm -f
