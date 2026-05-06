@@ -6,7 +6,7 @@
 /*   By: a600 <a600@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:36:54 by fsitter           #+#    #+#             */
-/*   Updated: 2026/05/06 11:42:03 by a600             ###   ########.fr       */
+/*   Updated: 2026/05/06 11:48:22 by a600             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,12 +117,15 @@ bool	Account::makeWithdrawal( int withdrawal )
 	return (false);
 }
 
-
-int main()
+int		Account::checkAmount( void ) const
 {
-	Account aa(100);
-	Account::displayAccountsInfos();
-	aa.makeDeposit(600);
-	aa.makeWithdrawal(2000);
-	aa.makeWithdrawal(200);
+	return (_amount);
+}
+
+void	Account::displayStatus( void ) const
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amount:";
+	std::cout << _amount << ";deposits:" << _nbDeposits;
+	std::cout << ";withdrawals:" << _nbWithdrawals << "\n";
 }
