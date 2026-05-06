@@ -14,7 +14,7 @@
 #include <iostream>
 
 void greeting(void);
-static std::string getInput(const std::string& prompt);
+static std::string getInput(const std::string& prompt, bool& eof);
 static void addContact(PhoneBook& pb);
 static void searchContact(PhoneBook& pb);
 
@@ -27,7 +27,11 @@ int	main(void)
 	while (true)
 	{
 		std::cout << "ADD, SEARCH or EXIT? ";
-		std::cin >> input;
+		if (!(std::cin >> input))
+        {
+            std::cout << "\n";
+            break;
+        }
 		std::cin.ignore();
 
 		if (input == "ADD")
@@ -46,44 +50,42 @@ void greeting(void)
 	std::cout << "Enter one of three commands. The program only accepts ADD, SEARCH and EXIT.\n";
 }
 
-static std::string getInput(const std::string& prompt)
+static std::string getInput(const std::string& prompt, bool& eof)
 {
-	std::string input;
-	do
-	{
-		std::cout << prompt;
-		std::getline(std::cin, input);
-		if (input.empty())
-			std::cout << "Field cannot be empty.\n";
-	} while (input.empty());
-	return (input);
+    std::string input;
+    do
+    {
+        std::cout << prompt;
+        if (!std::getline(std::cin, input))
+        {
+            eof = true;
+            return ("");
+        }
+        if (input.empty())
+            std::cout << "Field cannot be empty.\n";
+    } while (input.empty());
+    return (input);
 }
-
-// static std::string getInput(const std::string& prompt)
-// {
-//     std::string input;
-//     do
-//     {
-//         std::cout << prompt;
-//         if (!std::getline(std::cin, input))
-//         {
-//             std::cout << "\n";
-//             std::exit(0);
-//         }
-//         if (input.empty())
-//             std::cout << "Field cannot be empty.\n";
-//     } while (input.empty());
-//     return (input);
-// }
 
 static void addContact(PhoneBook& pb)
 {
 	std::string fn, ln, nn, pn, ds;
-	fn = getInput("First Name: ");
-	ln = getInput("Last Name: ");
-	nn = getInput("Nick Name: ");
-	pn = getInput("Phone Number: ");
-	ds = getInput("Darkest Secret: ");
+	bool eof = false;
+	fn = getInput("First Name: ", eof);
+	if (eof)
+	    return;
+	ln = getInput("Last Name: ", eof);
+	if (eof)
+	    return;
+	nn = getInput("Nick Name: ", eof);
+	if (eof)
+	    return;
+	pn = getInput("Phone Number: ", eof);
+	if (eof)
+	    return;
+	ds = getInput("Darkest Secret: ", eof);
+	if (eof)
+	    return;
 	pb.addContact(fn, ln, nn, pn, ds);
 }
 
