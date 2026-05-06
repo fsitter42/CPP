@@ -27,15 +27,20 @@ int	main(void)
 	while (true)
 	{
 		std::cout << "ADD, SEARCH or EXIT? ";
-		if (!(std::cin >> input))
+		if (!std::getline(std::cin, input))
         {
             std::cout << "\n";
             break;
         }
-		std::cin.ignore();
-
 		if (input == "ADD")
+		{
 			addContact(pb);
+		    if (!std::cin)
+            {
+                std::cout << "\n";
+                break;
+            }
+		}
 		else if (input == "SEARCH")
 			searchContact(pb);
 		else if (input == "EXIT")
