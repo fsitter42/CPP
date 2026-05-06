@@ -22,7 +22,7 @@ int	main(void)
 {
 	PhoneBook pb;
 	std::string input;
-	
+
 	greeting();
 	while (true)
 	{
@@ -37,7 +37,7 @@ int	main(void)
 		else if (input == "EXIT")
 			break;
 	}
-	return (0);	
+	return (0);
 }
 
 void greeting(void)
@@ -56,8 +56,25 @@ static std::string getInput(const std::string& prompt)
 		if (input.empty())
 			std::cout << "Field cannot be empty.\n";
 	} while (input.empty());
-	return (input);	
+	return (input);
 }
+
+// static std::string getInput(const std::string& prompt)
+// {
+//     std::string input;
+//     do
+//     {
+//         std::cout << prompt;
+//         if (!std::getline(std::cin, input))
+//         {
+//             std::cout << "\n";
+//             std::exit(0);
+//         }
+//         if (input.empty())
+//             std::cout << "Field cannot be empty.\n";
+//     } while (input.empty());
+//     return (input);
+// }
 
 static void addContact(PhoneBook& pb)
 {
