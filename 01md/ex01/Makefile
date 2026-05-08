@@ -1,4 +1,4 @@
-NAME	= brainz
+NAME	= horde
 CXX	= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 DFLAGS	= -MMD -MP
@@ -6,8 +6,8 @@ RM	= rm -f
 
 SRC	= 	main.cpp \
 		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp
+		zombieHorde.cpp
+
 OBJ	= $(SRC:.cpp=.o)
 DEP	= $(SRC:.cpp=.d)
 

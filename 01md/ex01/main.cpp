@@ -6,19 +6,19 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:02:02 by fsitter           #+#    #+#             */
-/*   Updated: 2026/05/08 13:02:03 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/05/08 13:25:35 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void randomChump( std::string name );
-Zombie* newZombie( std::string name );
+Zombie* zombieHorde( int N, std::string name );
 
-int main ()
+int main (void)
 {
-    Zombie *a = newZombie("hundi");
-    a->announce();
-    randomChump("wauwau");
-    delete a;
+    int n = 5;
+    Zombie *a = zombieHorde(n, "josi");
+    for (int i = 0; i < n; i++)
+        a[i].announce();
+    delete[] a;
 }

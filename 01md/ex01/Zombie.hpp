@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:02:13 by fsitter           #+#    #+#             */
-/*   Updated: 2026/05/08 13:02:14 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/05/08 13:12:56 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ class Zombie
       std::string name;
       
   public:
+    Zombie();
     Zombie (std::string name);
     ~Zombie (void);
     void announce (void);
+    void setName(const std::string& name);
 };
 
 #endif
