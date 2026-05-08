@@ -1,10 +1,13 @@
-NAME	= hibrian
+NAME	= violence
 CXX	= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 DFLAGS	= -MMD -MP
 RM	= rm -f
 
-SRC	= 	main.cpp
+SRC	= 	main.cpp \
+		Weapon.cpp \
+		HumanA.cpp \
+		HumanB.cpp
 
 OBJ	= $(SRC:.cpp=.o)
 DEP	= $(SRC:.cpp=.d)
