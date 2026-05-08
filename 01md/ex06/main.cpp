@@ -5,9 +5,37 @@ int main(int ac, char *av[])
 {
     if (ac != 2)
     {
-        std::cout << "needs an argutment";
+        std::cout << "needs an argument\n";
         return (0);
     }
     Harl a;
-    a.complain(av[1]);
+    int index = -1;
+    std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    for (int i = 0; i < 4; i++)
+    {
+        if (levels[i] == av[1])
+            index = i;
+    }
+    switch (index)
+    {
+        case 0:
+            std::cout << "[ " << levels[0] << " ]\n";
+            a.complain(levels[0]);
+            std::cout << "\n";
+        case 1:
+            std::cout << "[ " << levels[1] << " ]\n";
+            a.complain(levels[1]);
+            std::cout << "\n";
+        case 2:
+            std::cout << "[ " << levels[2] << " ]\n";
+            a.complain(levels[2]);
+            std::cout << "\n";
+        case 3:
+            std::cout << "[ " << levels[3] << " ]\n";
+            a.complain(levels[3]);
+            std::cout << "\n";
+            break;
+        case -1:
+            std::cout << "[ Probably complaining about insignificant problems ]\n";
+    }
 }
