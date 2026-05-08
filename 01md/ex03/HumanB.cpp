@@ -28,7 +28,7 @@ void HumanB::attack (void)
 	std::cout << "\n";
 }
 
-void HumanB::setWeapon(Weapon *weapon)
+void HumanB::setWeapon(Weapon &weapon)
 {
-	this->weapon = weapon;
+	this->weapon = &weapon;
 }
