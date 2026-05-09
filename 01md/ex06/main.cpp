@@ -5,7 +5,7 @@ int main(int ac, char *av[])
 {
     if (ac != 2)
     {
-        std::cout << "needs an argument\n";
+        std::cout << "needs one argument\n";
         return (0);
     }
     Harl a;
