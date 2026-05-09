@@ -9,7 +9,7 @@ int replaceInFile(std::string filename, std::string s1, std::string s2)
         std::cerr << "ERROR: s1 empty\n";
         return (1);
     }
-    std::ifstream inf(filename);
+    std::ifstream inf(filename.c_str());
     if (!inf)
     {
         std::cerr << "ERROR: infile\n";
