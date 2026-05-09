@@ -1,7 +1,3 @@
 #include <string>
-#include <iostream>
-#include <fstream>
 
-typedef std::string ss;
-
-int replaceInFile(ss filename, ss s1, ss s2);
+int replaceInFile(std::string filename, std::string s1, std::string s2);
