@@ -22,14 +22,17 @@ int main(int ac, char *av[])
             std::cout << "[ " << levels[0] << " ]\n";
             a.complain(levels[0]);
             std::cout << "\n";
+            // fall through
         case 1:
             std::cout << "[ " << levels[1] << " ]\n";
             a.complain(levels[1]);
             std::cout << "\n";
+            // fall through
         case 2:
             std::cout << "[ " << levels[2] << " ]\n";
             a.complain(levels[2]);
             std::cout << "\n";
+            // fall through
         case 3:
             std::cout << "[ " << levels[3] << " ]\n";
             a.complain(levels[3]);
