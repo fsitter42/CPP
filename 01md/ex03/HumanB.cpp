@@ -14,7 +14,9 @@
 #include <iostream>
 
 HumanB::HumanB(std::string name) : name(name)
-{}
+{
+    weapon = NULL;
+}
 
 void HumanB::attack (void)
 {
