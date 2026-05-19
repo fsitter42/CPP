@@ -7,14 +7,18 @@ template <size_t N>
 class XorString
 {
     public:
-        constexpr XorString(const char(&str)[N]) {
-            for (size_t i = 0; i < N; ++i) {
+        constexpr XorString(const char(&str)[N])
+        {
+            for (size_t i = 0; i < N; ++i)
+            {
                 _data[i] = str[i] ^ _key[i % 4];
             }
         }
     
-        void decrypt(char* dest) const {
-            for (size_t i = 0; i < N; ++i) {
+        void decrypt(char* dest) const
+        {
+            for (size_t i = 0; i < N; ++i)
+            {
                 dest[i] = _data[i] ^ _key[i % 4];
             }
         }
