@@ -1,5 +1,5 @@
 #include <iostream>
-#include "XORString.hpp"
+#include "Xorstring.hpp"
 
 int main()
 {
