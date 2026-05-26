@@ -72,3 +72,42 @@ bool Fixed::operator>(const Fixed& other) const
     return (this->_value > other._value);
 }
 
+bool Fixed::operator<(const Fixed& other) const
+{
+    return (this->_value < other._value);
+}
+
+bool Fixed::operator>=(const Fixed& other) const
+{
+    return (this->_value >= other._value);
+}
+
+bool Fixed::operator<=(const Fixed& other) const
+{
+    return (this->_value <= other._value);
+}
+
+bool Fixed::operator==(const Fixed& other) const
+{
+    return (this->_value == other._value);
+}
+
+bool Fixed::operator!=(const Fixed& other) const
+{
+    return (this->_value != other._value);
+}
+
+// arithmetik
+Fixed Fixed::operator*(const Fixed& other) const
+{
+    Fixed res;
+    res.setRawBits(this->_value * other._value / 256);
+    return (res);
+}
+
+Fixed Fixed::operator+(const Fixed& other) const
+{
+    Fixed res;
+    res.setRawBits(this->_value + other._value);
+    return (res);
+} 
