@@ -59,8 +59,16 @@ int Fixed::toInt( void ) const
     return (_value >> 8);
 }
 
+
+// operatoren:
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
     out << fixed.toFloat();
     return (out);
 }
+
+bool Fixed::operator>(const Fixed& other) const
+{
+    return (this->_value > other._value);
+}
+
