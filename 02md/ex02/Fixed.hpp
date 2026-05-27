@@ -28,7 +28,14 @@ class Fixed
         bool operator!=(const Fixed& other) const;
         // arthmetik operatoren:
         Fixed operator+(const Fixed& other) const;
+        Fixed operator-(const Fixed& other) const;
         Fixed operator*(const Fixed& other) const;
+        Fixed operator/(const Fixed& other) const;
+        // increment/decrement
+        Fixed& operator++(void);
+        Fixed operator++(int);
+        Fixed& operator--(void);
+        Fixed operator--(int);
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);

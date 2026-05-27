@@ -98,6 +98,22 @@ bool Fixed::operator!=(const Fixed& other) const
 }
 
 // arithmetik
+// 
+
+Fixed Fixed::operator+(const Fixed& other) const
+{
+    Fixed res;
+    res.setRawBits(this->_value + other._value);
+    return (res);
+}
+
+Fixed Fixed::operator-(const Fixed& other) const
+{
+    Fixed res;
+    res.setRawBits(this->_value - other._value);
+    return (res);
+} 
+
 Fixed Fixed::operator*(const Fixed& other) const
 {
     Fixed res;
@@ -105,9 +121,35 @@ Fixed Fixed::operator*(const Fixed& other) const
     return (res);
 }
 
-Fixed Fixed::operator+(const Fixed& other) const
+Fixed Fixed::operator/(const Fixed& other) const
 {
     Fixed res;
-    res.setRawBits(this->_value + other._value);
+    res.setRawBits(this->_value / other._value * 256);
     return (res);
-} 
+}
+
+Fixed& Fixed::operator++(void)
+{
+    _value += 1;
+    return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+    Fixed res(*this);
+    _value += 1;
+    return (res);
+}
+
+Fixed& Fixed::operator--(void)
+{
+    _value -= 1;
+    return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed res(*this);
+    _value -= 1;
+    return (res);
+}
