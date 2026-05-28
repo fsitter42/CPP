@@ -1,30 +1,35 @@
-NAME	= ex03
-CXX	= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
-DFLAGS	= -MMD -MP
-RM	= rm -f
+NAME        = ex03
+CXX         = c++
+CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
+DFLAGS      = -MMD -MP
+RM          = rm -f
 
-SRC	= 	main.cpp
+SRC         = main.cpp
 
-OBJ	= $(SRC:.cpp=.o)
-DEP	= $(SRC:.cpp=.d)
+OBJ_DIR     = obj
+
+OBJ         = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
+DEP         = $(SRC:%.cpp=$(OBJ_DIR)/%.d)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $(DFLAGS) -c $< -o $@
-	
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
 -include $(DEP)
-	
+
 clean:
-	$(RM) $(OBJ) $(DEP)
-	
-fclean:	clean
+	$(RM) -r $(OBJ_DIR)
+
+fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-	
+
 .PHONY: all clean fclean re
