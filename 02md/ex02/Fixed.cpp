@@ -153,3 +153,32 @@ Fixed Fixed::operator--(int)
     _value -= 1;
     return (res);
 }
+
+// min
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+    if (a._value < b._value)
+        return (a);
+    return (b);
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+    if (a._value < b._value)
+        return (a);
+    return (b);
+}
+
+// max
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+    if (a._value > b._value)
+        return (a);
+    return (b);
+}
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+    if (a._value > b._value)
+        return (a);
+    return (b);
+}
