@@ -4,17 +4,17 @@
 
 Fixed::Fixed() : _value(0)
 {
-    std::cout << "Default constructor called\n";
+    //std::cout << "Default constructor called\n";
 }
 
 Fixed::Fixed(const Fixed& other) : _value(other._value)
 {
-    std::cout << "Copy constructor called\n";
+    //std::cout << "Copy constructor called\n";
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-    std::cout << "Copy assignment operator called\n";
+    //std::cout << "Copy assignment operator called\n";
     if (this != &other)
         _value = other._value;
     return (*this);
@@ -22,18 +22,18 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called\n";
+    //std::cout << "Destructor called\n";
 }
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called\n";
+    //std::cout << "getRawBits member function called\n";
     return (_value);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-    std::cout << "setRawBits member function called\n";
+    //std::cout << "setRawBits member function called\n";
     _value = raw;
 }
 
@@ -41,12 +41,12 @@ void Fixed::setRawBits(int const raw)
 
 Fixed::Fixed(const int n) : _value(n << 8)
 {
-    std::cout << "Int constructor called\n";
+    //std::cout << "Int constructor called\n";
 }
 
 Fixed::Fixed(const float f) : _value (roundf(f * 256))
 {
-    std::cout << "Float constructor called\n";
+    //std::cout << "Float constructor called\n";
 }
 
 
