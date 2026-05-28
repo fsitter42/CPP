@@ -4,7 +4,10 @@ CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
 DFLAGS      = -MMD -MP
 RM          = rm -f
 
-SRC         = main.cpp
+SRC         = main.cpp \
+              Fixed.cpp \
+              Point.cpp \
+              bsp.cpp
 
 OBJ_DIR     = obj
 
