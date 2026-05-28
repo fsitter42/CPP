@@ -26,7 +26,6 @@ $(OBJ_DIR):
 -include $(DEP)
 
 clean:
-	$(RM) $(OBJ) $(DEP)
 	$(RM) -r $(OBJ_DIR)
 
 fclean: clean
