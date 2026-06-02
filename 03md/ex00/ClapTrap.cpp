@@ -1,14 +1,13 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap() : _name(" "), _hit(10), _energy(10), _dmg(0)
+ClapTrap::ClapTrap() : _name(""), _hit(10), _energy(10), _dmg(0)
 {
     std::cout << "Default constructor called\n";
 }
 
-ClapTrap::ClapTrap(std::string name) : _hit(10), _energy(10), _dmg(0)
+ClapTrap::ClapTrap(const std::string& name) : _name(name), _hit(10), _energy(10), _dmg(0)
 {
-    _name = name;
     std::cout << "Name constructor called\n";
 }
 
@@ -37,20 +36,44 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(const std::string& target)
 {
-    // if _hit && _energy > 0
-    // does this->_dmg to target (how to i reduce _hit in target?)
-    // cost 1 _energy
-    // std::cout ClapTrap <name> attacks <target>, causing <damage> points of damage!
+    if (_hit > 0 && _energy > 0)
+    {
+        _energy--;
+        std::cout << "ClapTrap " << _name <<  " attacks " << target << ", causing " << _dmg << " points of damage!\n";
+        return ;
+    }
+    if (_hit == 0)
+        std::cout << "dead\n";
+    else
+        std::cout << "no mana\n";
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
     //
+    std::cout << "ClapTrap " << _name <<  " takes  " << amount << " points of damage!\n";
+    if (amount >= _hit)
+    {
+        _hit = 0;
+        std::cout << "ClapTrap " << _name <<  " dies\n";
+    }
+    else
+    {
+        _hit -= amount;
+    }
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    // if _hit && _energy > 0
-    // this->_hit += amount
-    // costs 1 energy
+    if (_hit > 0 && _energy > 0)
+    {
+        _energy--;
+        _hit += amount;
+        std::cout << "ClapTrap " << _name <<  " heals for " << amount << "\n";
+        return ;
+    }
+    if (_hit == 0)
+        std::cout << "dead\n";
+    else
+        std::cout << "no mana\n";
 }

@@ -7,13 +7,13 @@ class ClapTrap
 {
   private:
       std::string _name;
-      int _hit;
-      int _energy;
-      int _dmg;
+      unsigned int _hit;
+      unsigned int _energy;
+      unsigned int _dmg;
 
   public:
       ClapTrap();
-      ClapTrap(std::string name);
+      ClapTrap(const std::string& name);
       ClapTrap(const ClapTrap& other);
       ClapTrap& operator=(const ClapTrap& other);
       ~ClapTrap();
