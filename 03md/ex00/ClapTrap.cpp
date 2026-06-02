@@ -51,7 +51,7 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
     //
-    std::cout << "ClapTrap " << _name <<  " takes  " << amount << " points of damage!\n";
+    std::cout << "ClapTrap " << _name <<  " takes " << amount << " points of damage!\n";
     if (amount >= _hit)
     {
         _hit = 0;
