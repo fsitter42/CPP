@@ -1,15 +1,25 @@
 #include "ClapTrap.hpp"
 
-int main()
+int main(void)
 {
     ClapTrap a;
-    ClapTrap b("hans");
+    ClapTrap b("hundi");
 
-    a.attack("hans");
-    b.attack("noname");
-    b.attack("name");
-
-    b.beRepaired(10);
+    a.attack("hundi");
+    b.attack("constanze");
+    
+    a.takeDamage(600);
     b.takeDamage(5);
-    b.takeDamage(16);
+
+    a.beRepaired(500);
+    b.beRepaired(5);
+
+    ClapTrap c;
+    c = b;
+
+    ClapTrap d = c;
+
+    c.attack("d");
+    d.takeDamage(6);
+    d.beRepaired(7);    
 }
