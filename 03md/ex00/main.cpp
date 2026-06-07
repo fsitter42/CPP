@@ -8,7 +8,7 @@ int main(void)
     a.attack("hundi");
     b.attack("constanze");
     
-    a.takeDamage(600);
+    a.takeDamage(600);   
     b.takeDamage(5);
 
     a.beRepaired(500);
