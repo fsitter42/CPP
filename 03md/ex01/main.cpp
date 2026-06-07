@@ -1,25 +1,104 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
-    ClapTrap a;
-    ClapTrap b("hundi");
+    ScavTrap a;
+    ScavTrap b ("hundi");
 
-    a.attack("hundi");
-    b.attack("constanze");
-    
-    a.takeDamage(600);   
-    b.takeDamage(5);
+    a.takeDamage(200);
+    b.takeDamage(50);
 
-    a.beRepaired(500);
-    b.beRepaired(5);
+    ScavTrap c = b;
 
-    ClapTrap c;
-    c = b;
-
-    ClapTrap d = c;
-
-    c.attack("d");
-    d.takeDamage(6);
-    d.beRepaired(7);    
+    c.takeDamage(100);
+    c.attack("schnuffel");
+    b.attack("schnuffel");
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.beRepaired(10);
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.attack("suwi");
+    b.guardGate();    
 }

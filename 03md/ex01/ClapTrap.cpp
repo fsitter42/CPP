@@ -39,23 +39,23 @@ void ClapTrap::attack(const std::string& target)
     if (_hit > 0 && _energy > 0)
     {
         _energy--;
-        std::cout << "ClapTrap " << _name <<  " attacks " << target << ", causing " << _dmg << " points of damage!\n";
+        std::cout << "Trap " << _name <<  " attacks " << target << ", causing " << _dmg << " points of damage!\n";
         return ;
     }
     if (_hit == 0)
-        std::cout << "dead\n";
+        std::cout << "Trap " << _name << " dead\n";
     else
-        std::cout << "no mana\n";
+        std::cout << "Trap " << _name << " no mana\n";
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
     //
-    std::cout << "ClapTrap " << _name <<  " takes " << amount << " points of damage!\n";
+    std::cout << "Trap " << _name <<  " takes " << amount << " points of damage!\n";
     if (amount >= _hit)
     {
         _hit = 0;
-        std::cout << "ClapTrap " << _name <<  " dies\n";
+        std::cout << "Trap " << _name <<  " dies\n";
     }
     else
     {
@@ -69,7 +69,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         _energy--;
         _hit += amount;
-        std::cout << "ClapTrap " << _name <<  " heals for " << amount << "\n";
+        std::cout << "Trap " << _name <<  " heals for " << amount << "\n";
         return ;
     }
     if (_hit == 0)
