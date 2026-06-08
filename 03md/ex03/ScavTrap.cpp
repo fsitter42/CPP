@@ -37,13 +37,13 @@ void ScavTrap::attack(const std::string& target)
     if (_hit > 0 && _energy > 0)
     {
         _energy--;
-        std::cout << "Trap " << _name <<  " attacks " << target << ", causing " << _dmg << " points of damage!\n";
+        std::cout << "STrap " << _name <<  " attacks " << target << ", causing " << _dmg << " points of damage!\n";
         return ;
     }
     if (_hit == 0)
-        std::cout << "Trap " << _name << " dead\n";
+        std::cout << "STrap " << _name << " dead\n";
     else
-        std::cout << "Trap " << _name << " no mana\n";
+        std::cout << "STrap " << _name << " no mana\n";
 }
 
 void ScavTrap::guardGate()

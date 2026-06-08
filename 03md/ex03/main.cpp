@@ -1,113 +1,12 @@
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
-    ScavTrap a;
-    ScavTrap b ("hundi");
-
-    a.takeDamage(200);
-    b.takeDamage(50);
-
-    ScavTrap c = b;
-
-    c.takeDamage(100);
-    c.attack("schnuffel");
-    b.attack("schnuffel");
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.beRepaired(10);
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.attack("suwi");
-    b.guardGate();
-    FragTrap x;
-    FragTrap y("samuel");
-    y.attack("hans");
-    y.highFiveGuys();
-    y.beRepaired(4);
-    y.beRepaired(4);
-    y.takeDamage(90);
-    y.takeDamage(40);
+    DiamondTrap a("hundi");
+    a.attack("katzi");
+    for (int i = 0; i < 67; i++)
+        a.attack("katzi");
+    a.takeDamage(99);
+    a.takeDamage(2);
+    a.whoAmI();
 }
