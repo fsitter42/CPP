@@ -5,6 +5,9 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
     std::cout << "ST Default constructor called\n";
+    _hit = 100;
+    _energy = 50;
+    _dmg = 20;
 }
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
