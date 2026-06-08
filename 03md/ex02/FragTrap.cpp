@@ -1,6 +1,6 @@
 #include "FragTrap.hpp"
 #include "ClapTrap.hpp"
-#include "iostream"
+#include <iostream>
 
 FragTrap::FragTrap() : ClapTrap()
 {
