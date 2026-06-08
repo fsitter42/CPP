@@ -6,7 +6,8 @@ RM          = rm -f
 
 SRC         = main.cpp \
               ClapTrap.cpp \
-              ScavTrap.cpp
+              ScavTrap.cpp \
+              FragTrap.cpp
 
 OBJ_DIR     = obj
 
