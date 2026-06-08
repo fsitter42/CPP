@@ -7,6 +7,9 @@
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap() , FragTrap()
 {
     std::cout << "DT Default constructor called\n";
+    _hit = 100;
+    _energy = 50;
+    _dmg = 30;
 }
 
 DiamondTrap::DiamondTrap(const std::string& name)
