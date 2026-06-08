@@ -34,5 +34,5 @@ FragTrap::~FragTrap()
 
 void FragTrap::highFiveGuys(void)
 {
-    std::cout << "FT positive high-five message.\n ";
+    std::cout << "FT positive high-five message.\n";
 }

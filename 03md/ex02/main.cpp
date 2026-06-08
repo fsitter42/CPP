@@ -1,3 +1,4 @@
+#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
 int main(void)
@@ -100,5 +101,13 @@ int main(void)
     b.attack("suwi");
     b.attack("suwi");
     b.attack("suwi");
-    b.guardGate();    
+    b.guardGate();
+    FragTrap x;
+    FragTrap y("samuel");
+    y.attack("hans");
+    y.highFiveGuys();
+    y.beRepaired(4);
+    y.beRepaired(4);
+    y.takeDamage(90);
+    y.takeDamage(40);
 }
