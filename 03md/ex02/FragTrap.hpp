@@ -12,7 +12,11 @@ class FragTrap : public ClapTrap
         FragTrap(const FragTrap& other);
         FragTrap& operator=(const FragTrap& other);
         ~FragTrap();
-        void highFiveGuys(void);        
+        void highFiveGuys(void);
+    protected:
+        static const int defaultHealth = 100;
+        static const int defaultEnergy = 100;
+        static const int defaultDmg = 30;    
 };
 
 #endif
