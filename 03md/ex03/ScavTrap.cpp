@@ -4,7 +4,7 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-    std::cout << "ST Default constructor called\n";
+    std::cout << "ScavTrap Default constructor called\n";
     _hit = 100;
     _energy = 50;
     _dmg = 20;
@@ -12,7 +12,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-    std::cout << "ST Name constructor called\n";
+    std::cout << "ScavTrap Name constructor called\n";
     _hit = 100;
     _energy = 50;
     _dmg = 20;
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-    std::cout << "ST Copy constructor called\n";
+    std::cout << "ScavTrap Copy constructor called\n";
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other) 
@@ -32,7 +32,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ST Destructor called\n";
+    std::cout << "ScavTrap Destructor called\n";
 }
 
 void ScavTrap::attack(const std::string& target)
@@ -40,22 +40,22 @@ void ScavTrap::attack(const std::string& target)
     if (_hit > 0 && _energy > 0)
     {
         _energy--;
-        std::cout << "STrap " << _name <<  " attacks " << target << ", causing " << _dmg << " points of damage!\n";
+        std::cout << "ScavTrap " << _name <<  " attacks " << target << ", causing " << _dmg << " points of damage!\n";
         return ;
     }
     if (_hit == 0)
-        std::cout << "STrap " << _name << " dead\n";
+        std::cout << "ScavTrap " << _name << " dead\n";
     else
-        std::cout << "STrap " << _name << " no mana\n";
+        std::cout << "ScavTrap " << _name << " no mana\n";
 }
 
 void ScavTrap::guardGate()
 {
     if (_hit > 0)
     {
-        std::cout << "Trap " << _name <<  " enters gg mode\n";
+        std::cout << "ScavTrap " << _name <<  " enters gg mode\n";
         return ;
     }
     if (_hit == 0)
-        std::cout << "Trap " << _name << " dead\n";
+        std::cout << "ScavTrap " << _name << " dead\n";
 }
