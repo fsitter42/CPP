@@ -3,22 +3,22 @@
 
 ClapTrap::ClapTrap() : _name(), _hit(10), _energy(10), _dmg(0)
 {
-    std::cout << "Default constructor called\n";
+    std::cout << "ClapTrap Default constructor called\n";
 }
 
 ClapTrap::ClapTrap(const std::string& name) : _name(name), _hit(10), _energy(10), _dmg(0)
 {
-    std::cout << "Name constructor called\n";
+    std::cout << "ClapTrap Name constructor called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) : _name(other._name), _hit(other._hit), _energy(other._energy), _dmg(other._dmg)
 {
-    std::cout << "Copy constructor called\n";
+    std::cout << "ClapTrap Copy constructor called\n";
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-    std::cout << "Copy assignment operator called\n";
+    std::cout << "ClapTrap Copy assignment operator called\n";
     if (this != &other)
     {
         _name = other._name;
@@ -31,7 +31,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called\n";
+    std::cout << "ClapTrap Destructor called\n";
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -43,9 +43,9 @@ void ClapTrap::attack(const std::string& target)
         return ;
     }
     if (_hit == 0)
-        std::cout << "dead\n";
+        std::cout << "ClapTrap " << _name << "dead\n";
     else
-        std::cout << "no mana\n";
+        std::cout << "ClapTrap " << _name << "no mana\n";
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -73,7 +73,7 @@ void ClapTrap::beRepaired(unsigned int amount)
         return ;
     }
     if (_hit == 0)
-        std::cout << "dead\n";
+        std::cout << "ClapTrap " << _name << "dead\n";
     else
-        std::cout << "no mana\n";
+        std::cout << "ClapTrap " << _name << "no mana\n";
 }
