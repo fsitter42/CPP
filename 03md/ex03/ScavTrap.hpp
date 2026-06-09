@@ -4,7 +4,7 @@
 #include "ClapTrap.hpp"
 #include <string>
 
-class ScavTrap : virtual public ClapTrap
+class ScavTrap : public ClapTrap
 {
   public:
       ScavTrap();
@@ -14,6 +14,10 @@ class ScavTrap : virtual public ClapTrap
       ~ScavTrap();
       void attack(const std::string& target);
       void guardGate();
+  protected:
+      static const int defaultHealth = 100;
+      static const int defaultEnergy = 50;
+      static const int defaultDmg = 20;
 };
 
 #endif

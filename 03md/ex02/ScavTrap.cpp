@@ -5,17 +5,17 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
     std::cout << "ScavTrap Default constructor called\n";
-    _hit = 100;
-    _energy = 50;
-    _dmg = 20;
+    this->_hit = ScavTrap::defaultHealth;
+    this->_energy = ScavTrap::defaultEnergy;
+    this->_dmg = ScavTrap::defaultDmg;
 }
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
     std::cout << "ScavTrap Name constructor called\n";
-    _hit = 100;
-    _energy = 50;
-    _dmg = 20;
+    this->_hit = ScavTrap::defaultHealth;
+    this->_energy = ScavTrap::defaultEnergy;
+    this->_dmg = ScavTrap::defaultDmg;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
