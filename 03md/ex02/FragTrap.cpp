@@ -4,7 +4,7 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-    std::cout << "FT Default constructor called\n";
+    std::cout << "FragTrap Default constructor called\n";
     _hit = 100;
     _energy = 100;
     _dmg = 30;
@@ -12,7 +12,7 @@ FragTrap::FragTrap() : ClapTrap()
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
-    std::cout << "FT Name constructor called\n";
+    std::cout << "FragTrap Name constructor called\n";
     _hit = 100;
     _energy = 100;
     _dmg = 30;
@@ -20,7 +20,7 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
-    std::cout << "FT Copy constructor called\n";
+    std::cout << "FragTrap Copy constructor called\n";
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
@@ -32,10 +32,10 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 
 FragTrap::~FragTrap()
 {
-    std::cout << "FT Destructor called\n";
+    std::cout << "FragTrap Destructor called\n";
 }
 
 void FragTrap::highFiveGuys(void)
 {
-    std::cout << "FT positive high-five message.\n";
+    std::cout << "FragTrap positive high-five message.\n";
 }
