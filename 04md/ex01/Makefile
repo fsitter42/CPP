@@ -1,4 +1,4 @@
-NAME        = ex00
+NAME        = ex01
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
 DFLAGS      = -MMD -MP
@@ -9,7 +9,8 @@ SRC         = main.cpp \
               Dog.cpp \
               Cat.cpp \
               WrongAnimal.cpp \
-              WrongCat.cpp
+              WrongCat.cpp \
+              Brain.cpp
 
 OBJ_DIR     = obj
 
