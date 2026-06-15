@@ -36,3 +36,8 @@ void Cat::makeSound() const
 {
     std::cout << "Miau Miau.\n";
 }
+
+Brain* Cat::getBrain() const
+{
+    return (this->_brain);
+}

@@ -1,35 +1,30 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
 #include <iostream>
 
-int main(void)
+int main()
 {
-    const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
-
-    j->makeSound();
-    i->makeSound();
-    meta->makeSound();
-
-    delete meta;
     delete j;
     delete i;
 
-    std::cout << "\n\n\n";
+    Animal* animals[10];
+    for (int i = 0; i < 5; i++)
+        animals[i] = new Dog();
+    for (int i = 5; i < 10; i++)
+        animals[i] = new Cat();
+    for (int i = 0; i < 10; i++)
+        delete animals[i];
 
-    const WrongAnimal* w = new WrongCat();
-    w->makeSound();
-    delete w;
-
-    std::cout << "\n\n\n";
 
     Dog d1;
-    Dog d2(d1);
-    Dog d3;
-    d3 = d1;
+    d1.getBrain()->learn(0, "tsching tschong tsa tsee");
 
-    std::cout << d2.getType() << "\n";
-    std::cout << d3.getType() << "\n\n\n";
+    Dog d2;
+    d2.getBrain()->learn(0, "wabalaba ding dong");
+
+    std::cout << *d1.getBrain()->think(0) << "\n";
+    std::cout << *d2.getBrain()->think(0) << "\n";
+    return 0;
 }
