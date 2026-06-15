@@ -1,11 +1,11 @@
-NAME        = ex01
+NAME        = ex02
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
 DFLAGS      = -MMD -MP
 RM          = rm -f
 
 SRC         = main.cpp \
-              Animal.cpp \
+              AAnimal.cpp \
               Dog.cpp \
               Cat.cpp \
               WrongAnimal.cpp \
