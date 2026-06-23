@@ -6,7 +6,24 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
+void md04test();
+void mytest();
+
 int main()
+{
+    //md04test();
+    mytest();
+    
+}
+
+void mytest()
+{
+    Character b("hundi");
+    //MateriaSource a;
+    
+}
+
+void md04test()
 {
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
