@@ -4,12 +4,12 @@ CXXFLAGS    = -Wall -Wextra -Werror -std=c++98 -Wpedantic
 DFLAGS      = -MMD -MP
 RM          = rm -f
 
-SRC         = main.cpp \
-              AMateria.cpp \
-              ICharacter.cpp \
-              Character.cpp \
-              Ice.cpp \
-              Cure.cpp
+SRC         = AMateria.cpp \
+                Character.cpp \
+                Cure.cpp \
+                Ice.cpp \
+                main.cpp \
+                MateriaSource.cpp
                 
               
 
