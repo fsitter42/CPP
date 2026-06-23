@@ -44,10 +44,10 @@ Character::~Character()
 {
     std::cout << "Character Destructor called\n";
     for (int i = 0; i < 4; i++)
-        {
-            if (_skills[i] != NULL)
-                delete _skills[i];
-        }
+    {
+        if (_skills[i] != NULL)
+            delete _skills[i];
+    }
 }
 
 std::string const& Character::getName() const
@@ -57,6 +57,8 @@ std::string const& Character::getName() const
 
 void Character::equip(AMateria* m)
 {
+    if (!m)
+        return;
     for (int i = 0; i < 4; i++)
     {
         if (this->_skills[i] == NULL)
