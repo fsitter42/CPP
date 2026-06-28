@@ -72,7 +72,11 @@ void Character::equip(AMateria* m)
 void Character::unequip(int idx)
 {
     if (idx < 4)
+    {
+        if (this->_skills[idx]->getClone() != 42)
+            delete this->_skills[idx];
         this->_skills[idx] = NULL;
+    }
 }
 
 void Character::use(int idx, ICharacter& target)

@@ -10,6 +10,7 @@ Cure::Cure() : AMateria("cure")
 Cure::Cure(const Cure& other) : AMateria(other)
 {
     std::cout << "Cure Copy Constructor called\n";
+    this->_clone = 43;
 }
 
 Cure& Cure::operator=(const Cure& other)
@@ -29,6 +30,7 @@ Cure::~Cure()
  AMateria* Cure::clone() const
  {
      AMateria *a = new Cure();
+     a->setClone();
      return (a);
  }
 
