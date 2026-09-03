@@ -1,17 +1,15 @@
-NAME        = ex03
+NAME        = ex00
 CXX         = c++
-CXXFLAGS    = -Wall -Wextra -Werror -std=c++98 -Wpedantic
+CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
 DFLAGS      = -MMD -MP
-RM          = rm -f     
+RM          = rm -f
 
-SRC         = AMateria.cpp \
-                Character.cpp \
-                Cure.cpp \
-                Ice.cpp \
-                main.cpp \
-                MateriaSource.cpp
-                
-              
+SRC         = main.cpp \
+              Animal.cpp \
+              Dog.cpp \
+              Cat.cpp \
+              WrongAnimal.cpp \
+              WrongCat.cpp
 
 OBJ_DIR     = obj
 
