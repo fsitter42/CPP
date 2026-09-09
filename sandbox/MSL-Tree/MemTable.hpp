@@ -6,23 +6,23 @@
 # include "Arena.hpp"
 
 struct MemTableNode {
-	StringRef		key;
-	StringRef		val;
-	size_t			height;
+	StringRef		    key;
+	StringRef		    val;
+	size_t			    height;
 	MemTableNode		**forward;
 };
 
 class MemTable {
 	private:
 		MemTableNode*	_head;
-		Arena		_arena;
-		size_t		_max_height;
-		size_t		_bytes_used;
-		size_t		_max_bytes;
+		Arena		    _arena;
+		size_t		    _max_height;
+		size_t		    _bytes_used;
+		size_t		    _max_bytes;
 
 		MemTableNode*	_create_node(StringRef key, StringRef val, size_t height);
-		size_t		_random_height();
-		int		_compare_keys(const StringRef& a, const StringRef& b) const;
+		size_t		    _random_height();
+		int		        _compare_keys(const StringRef& a, const StringRef& b) const;
 
 		// OCF prohibit copies
 		MemTable(const MemTable& other);
@@ -34,15 +34,15 @@ class MemTable {
 		~MemTable();
 
 		// main operations
-		bool		insert(StringRef key, StringRef val);
-		bool 		search(StringRef key, StringRef& out_val) const;
-		void 		flush_to_disk(int fd);
-		void 		clear();
+		bool		    insert(StringRef key, StringRef val);
+		bool 		    search(StringRef key, StringRef& out_val) const;
+		void 		    flush_to_disk(int fd);
+		void 	    	clear();
 
 		// getter
-		size_t		getBytesUsed() const;
-		size_t		getMaxBytes() const;
-		bool		isFull() const;
+		size_t		    getBytesUsed() const;
+		size_t		    getMaxBytes() const;
+		bool		    isFull() const;
 
 };
 
