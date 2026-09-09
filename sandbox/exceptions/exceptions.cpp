@@ -33,8 +33,8 @@ int main()
 			// throw 42;
 			// throw 4.2;
 			// thrower();
-			// not_the_thrower();
-			throw ;
+			not_the_thrower();
+			// throw ;
 		}
 		catch (bad_alloc& e)
 		{
