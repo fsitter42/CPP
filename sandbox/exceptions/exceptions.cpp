@@ -29,11 +29,11 @@ int main()
 			// int *array = new int[9999999999999];
 			// throw exception();
 			// throw runtime_error("Problem encountered!");
-			// throw custom_exception();
+			throw custom_exception();
 			// throw 42;
 			// throw 4.2;
 			// thrower();
-			not_the_thrower();
+			// not_the_thrower();
 			// throw ;
 		}
 		catch (bad_alloc& e)

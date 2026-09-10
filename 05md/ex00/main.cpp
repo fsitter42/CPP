@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include <iostream>
 
 int main(void)
 {
@@ -7,4 +8,31 @@ int main(void)
 	Bureaucrat c(b);
 	Bureaucrat d("D", 42);
 	a = d;
+	
+	std::cout << a.getName() << "\n";
+	std::cout << b.getName() << "\n";
+	std::cout << c.getName() << "\n";
+	std::cout << d.getName() << "\n";
+	std::cout << "\n\n\n";
+
+	std::cout << a.getGrade() << "\n";
+	std::cout << d.getGrade() << "\n";
+	std::cout << b.getGrade() << "\n";
+	std::cout << "\n\n\n";
+	
+
+	a.increment(1);
+	b.increment(1);
+	//b.decrement(2);
+	try
+	{
+			b.decrement(42);
+			std::cout << a.getGrade() << "\n";
+			std::cout << d.getGrade() << "\n";
+			std::cout << b.getGrade() << "\n";
+	}
+	catch (...)
+	{
+		std::cout << "fAAAAA\n";
+	}
 }

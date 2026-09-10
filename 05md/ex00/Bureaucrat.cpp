@@ -36,3 +36,41 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : name_(name), grade_
 	std::cout << "Name and Grade Constructor called\n";
 }
 
+const std::string& Bureaucrat::getName() const
+{
+	return (this->name_);
+}
+
+int Bureaucrat::getGrade() const
+{
+	return (this->grade_);
+}
+
+
+bool Bureaucrat::increment(const unsigned int steps)
+{
+	if (this->grade_ - steps < 1)
+	{
+		throw GradeTooHighException();
+		return (false);
+	}
+	else
+	{
+		this->grade_ = this->grade_ - steps;
+		return (true);
+	}
+}
+
+bool Bureaucrat::decrement(const unsigned int steps)
+{
+	if (this->grade_ + steps > 150)
+	{
+		throw GradeTooLowException();
+		return (false);
+	}
+	else
+	{
+		this->grade_ = this->grade_ + steps;
+		return (true);
+	}
+}

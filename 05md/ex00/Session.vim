@@ -29,11 +29,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 8 - ((7 * winheight(0) + 19) / 38)
+let s:l = 1 - ((0 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 8
+keepjumps 1
 normal! 0
 lcd ~/CPP/05md/ex00
 tabnext
@@ -115,12 +115,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 18) / 37)
+let s:l = 30 - ((19 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 30
+normal! 09|
 wincmd w
 argglobal
 if bufexists("~/CPP/05md/ex00/Bureaucrat.cpp") | buffer ~/CPP/05md/ex00/Bureaucrat.cpp | else | edit ~/CPP/05md/ex00/Bureaucrat.cpp | endif
@@ -135,12 +135,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 16 - ((14 * winheight(0) + 9) / 18)
+let s:l = 54 - ((6 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 16
-normal! 051|
+keepjumps 54
+normal! 014|
 wincmd w
 argglobal
 if bufexists("~/CPP/05md/ex00/main.cpp") | buffer ~/CPP/05md/ex00/main.cpp | else | edit ~/CPP/05md/ex00/main.cpp | endif
@@ -155,12 +155,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 9 - ((8 * winheight(0) + 9) / 18)
+let s:l = 31 - ((10 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 9
-normal! 010|
+keepjumps 31
+normal! 013|
 wincmd w
 3wincmd w
 exe 'vert 1resize ' . ((&columns * 77 + 86) / 173)
@@ -170,10 +170,11 @@ exe '3resize ' . ((&lines * 18 + 20) / 40)
 exe 'vert 3resize ' . ((&columns * 95 + 86) / 173)
 tabnext 4
 set stal=1
+badd +0 ~/CPP/05md/ex00
 badd +1 ~/CPP/05md/ex00/Bureaucrat.cpp
 badd +1 ~/CPP/05md/ex00/Makefile
-badd +26 ~/CPP/05md/ex00/Bureaucrat.hpp
-badd +6 ~/CPP/05md/ex00/main.cpp
+badd +1 ~/CPP/05md/ex00/Bureaucrat.hpp
+badd +31 ~/CPP/05md/ex00/main.cpp
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
