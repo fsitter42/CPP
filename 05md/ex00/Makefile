@@ -5,11 +5,7 @@ DFLAGS      = -MMD -MP
 RM          = rm -f
 
 SRC         = main.cpp \
-              Animal.cpp \
-              Dog.cpp \
-              Cat.cpp \
-              WrongAnimal.cpp \
-              WrongCat.cpp
+              Bureaucrat.cpp
 
 OBJ_DIR     = obj
 
