@@ -74,3 +74,8 @@ bool Bureaucrat::decrement(const unsigned int steps)
 		return (true);
 	}
 }
+
+/*
+std::ostream& operator<<(std::ostream& stream, Bureaucrat const& obj);
+std::ostream& operator<<(std::ostream& stream, Bureaucrat const* obj);
+*/
