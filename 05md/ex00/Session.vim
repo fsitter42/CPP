@@ -15,8 +15,29 @@ $argadd ~/CPP/05md/ex00
 set stal=2
 tabnew
 tabnew
+tabnew
 tabrewind
 edit ~/CPP/05md/ex00
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 8 - ((7 * winheight(0) + 19) / 38)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 8
+normal! 0
+lcd ~/CPP/05md/ex00
+tabnext
+edit ~/CPP/05md/ex00/Bureaucrat.cpp
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -38,6 +59,7 @@ lcd ~/CPP/05md/ex00
 tabnext
 edit ~/CPP/05md/ex00/Makefile
 argglobal
+balt ~/CPP/05md/ex00/Bureaucrat.cpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -62,10 +84,6 @@ set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
 1wincmd h
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
 wincmd w
 wincmd _ | wincmd |
 split
@@ -80,16 +98,13 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 18 + 20) / 40)
-exe 'vert 1resize ' . ((&columns * 86 + 86) / 173)
+exe 'vert 1resize ' . ((&columns * 77 + 86) / 173)
 exe '2resize ' . ((&lines * 18 + 20) / 40)
-exe 'vert 2resize ' . ((&columns * 86 + 86) / 173)
+exe 'vert 2resize ' . ((&columns * 95 + 86) / 173)
 exe '3resize ' . ((&lines * 18 + 20) / 40)
-exe 'vert 3resize ' . ((&columns * 86 + 86) / 173)
-exe '4resize ' . ((&lines * 18 + 20) / 40)
-exe 'vert 4resize ' . ((&columns * 86 + 86) / 173)
+exe 'vert 3resize ' . ((&columns * 95 + 86) / 173)
 argglobal
-balt ~/CPP/05md/ex00/Makefile
+balt ~/CPP/05md/ex00/Bureaucrat.cpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -100,34 +115,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 43 - ((0 * winheight(0) + 9) / 18)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 43
-normal! 053|
-lcd ~/CPP/05md/ex00
-wincmd w
-argglobal
-if bufexists("~/CPP/05md/ex00/Makefile") | buffer ~/CPP/05md/ex00/Makefile | else | edit ~/CPP/05md/ex00/Makefile | endif
-balt ~/CPP/05md/ex00/Bureaucrat.hpp
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+let s:l = 1 - ((0 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
-lcd ~/CPP/05md/ex00
 wincmd w
 argglobal
 if bufexists("~/CPP/05md/ex00/Bureaucrat.cpp") | buffer ~/CPP/05md/ex00/Bureaucrat.cpp | else | edit ~/CPP/05md/ex00/Bureaucrat.cpp | endif
@@ -142,12 +135,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 6 - ((0 * winheight(0) + 9) / 18)
+let s:l = 16 - ((14 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 6
-normal! 010|
+keepjumps 16
+normal! 051|
 wincmd w
 argglobal
 if bufexists("~/CPP/05md/ex00/main.cpp") | buffer ~/CPP/05md/ex00/main.cpp | else | edit ~/CPP/05md/ex00/main.cpp | endif
@@ -162,29 +155,25 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+let s:l = 9 - ((8 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 9
+normal! 010|
 wincmd w
-2wincmd w
-exe '1resize ' . ((&lines * 18 + 20) / 40)
-exe 'vert 1resize ' . ((&columns * 86 + 86) / 173)
+3wincmd w
+exe 'vert 1resize ' . ((&columns * 77 + 86) / 173)
 exe '2resize ' . ((&lines * 18 + 20) / 40)
-exe 'vert 2resize ' . ((&columns * 86 + 86) / 173)
+exe 'vert 2resize ' . ((&columns * 95 + 86) / 173)
 exe '3resize ' . ((&lines * 18 + 20) / 40)
-exe 'vert 3resize ' . ((&columns * 86 + 86) / 173)
-exe '4resize ' . ((&lines * 18 + 20) / 40)
-exe 'vert 4resize ' . ((&columns * 86 + 86) / 173)
-tabnext 3
+exe 'vert 3resize ' . ((&columns * 95 + 86) / 173)
+tabnext 4
 set stal=1
-badd +0 ~/CPP/05md/ex00
-badd +0 ~/CPP/05md/ex00/Makefile
-badd +1 ~/CPP/05md/ex00/Bureaucrat.hpp
 badd +1 ~/CPP/05md/ex00/Bureaucrat.cpp
-badd +1 ~/CPP/05md/ex00/main.cpp
+badd +1 ~/CPP/05md/ex00/Makefile
+badd +26 ~/CPP/05md/ex00/Bureaucrat.hpp
+badd +6 ~/CPP/05md/ex00/main.cpp
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
