@@ -1,16 +1,11 @@
 NAME        = ex01
 CXX         = c++
-CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS    = -Wall -Wextra -Werror -std=c++98 -Wpedantic
 DFLAGS      = -MMD -MP
 RM          = rm -f
 
 SRC         = main.cpp \
-              Animal.cpp \
-              Dog.cpp \
-              Cat.cpp \
-              WrongAnimal.cpp \
-              WrongCat.cpp \
-              Brain.cpp
+              Bureaucrat.cpp
 
 OBJ_DIR     = obj
 

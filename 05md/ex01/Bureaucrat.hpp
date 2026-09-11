@@ -1,20 +1,20 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-#include "GradeException.hpp"
+#include "bLimits.h"
 #include <string>
 #include <iostream>
 
 class Bureaucrat
 {
     private:
-        const static int _bestGrade = 1;
-        const static int _worstGrade = 150;
+        const static int _bestGrade = BEST_GRADE;
+        const static int _worstGrade = WORST_GRADE;
 
-        const std::string _name;
-        int _grade;
+        const std::string name_;
+        int grade_;
 
-        int _isValidGrade(int grade) const;
+        int isValidGrade_(int grade) const;
         
     public:
         // OCF Mandatory
@@ -31,20 +31,23 @@ class Bureaucrat
         bool increment(const unsigned int steps);
         bool decrement(const unsigned int steps);
 
-        class GradeTooHighException : public GradeException {
-            public:
-                GradeTooHighException();
-                GradeTooHighException(int grade);
-        };
+		class GradeTooHighException : public std::exception
+		{
+			virtual const char* what() const throw ()
+			{
+				return ("Grade too high boai.. ");
+			}
+		};
 
-        class GradeTooLowException : public GradeException {
-            public:
-                GradeTooLowException();
-                GradeTooLowException(int grade);
-        };
+		class GradeTooLowException : public std::exception
+		{
+			virtual const char* what() const throw ()
+			{
+				return ("Grade too low boai.. ");
+			}
+		};
 };
 
 std::ostream& operator<<(std::ostream& stream, Bureaucrat const& obj);
-std::ostream& operator<<(std::ostream& stream, Bureaucrat const* obj);
 
 #endif
