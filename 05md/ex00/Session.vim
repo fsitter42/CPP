@@ -8,14 +8,24 @@ cd ~/CPP/05md/ex00
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
-set shortmess=aoO
+let s:shortmess_save = &shortmess
+if &shortmess =~ 'A'
+  set shortmess=aoOA
+else
+  set shortmess=aoO
+endif
+badd +1 ~/CPP/05md/ex00
+badd +76 Bureaucrat.cpp
+badd +1 Makefile
+badd +1 Bureaucrat.hpp
+badd +38 main.cpp
 argglobal
 %argdel
 $argadd ~/CPP/05md/ex00
 set stal=2
-tabnew
-tabnew
-tabnew
+tabnew +setlocal\ bufhidden=wipe
+tabnew +setlocal\ bufhidden=wipe
+tabnew +setlocal\ bufhidden=wipe
 tabrewind
 edit ~/CPP/05md/ex00
 argglobal
@@ -29,7 +39,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 19) / 38)
+let s:l = 1 - ((0 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -49,7 +59,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 19) / 38)
+let s:l = 1 - ((0 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -70,14 +80,14 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 8 - ((7 * winheight(0) + 19) / 38)
+let s:l = 3 - ((2 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 8
-normal! 024|
+keepjumps 3
+normal! 057|
 tabnext
-edit ~/CPP/05md/ex00/Bureaucrat.hpp
+edit ~/CPP/05md/ex00/Bureaucrat.cpp
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -94,9 +104,29 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 77 + 86) / 173)
-exe 'vert 2resize ' . ((&columns * 95 + 86) / 173)
+exe 'vert 1resize ' . ((&columns * 77 + 77) / 155)
+exe 'vert 2resize ' . ((&columns * 77 + 77) / 155)
 argglobal
+balt ~/CPP/05md/ex00/Bureaucrat.hpp
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 62 - ((23 * winheight(0) + 27) / 54)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 62
+normal! 023|
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/CPP/05md/ex00/Bureaucrat.hpp", ":p")) | buffer ~/CPP/05md/ex00/Bureaucrat.hpp | else | edit ~/CPP/05md/ex00/Bureaucrat.hpp | endif
 balt ~/CPP/05md/ex00/Bureaucrat.cpp
 setlocal fdm=manual
 setlocal fde=0
@@ -108,48 +138,23 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 50 - ((20 * winheight(0) + 18) / 37)
+let s:l = 1 - ((0 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 50
+keepjumps 1
 normal! 0
 wincmd w
-argglobal
-if bufexists("~/CPP/05md/ex00/Bureaucrat.cpp") | buffer ~/CPP/05md/ex00/Bureaucrat.cpp | else | edit ~/CPP/05md/ex00/Bureaucrat.cpp | endif
-balt ~/CPP/05md/ex00/main.cpp
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 81 - ((29 * winheight(0) + 18) / 37)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 81
-normal! 02|
-wincmd w
-2wincmd w
-exe 'vert 1resize ' . ((&columns * 77 + 86) / 173)
-exe 'vert 2resize ' . ((&columns * 95 + 86) / 173)
-tabnext 4
+exe 'vert 1resize ' . ((&columns * 77 + 77) / 155)
+exe 'vert 2resize ' . ((&columns * 77 + 77) / 155)
+tabnext 3
 set stal=1
-badd +1 ~/CPP/05md/ex00
-badd +1 ~/CPP/05md/ex00/Bureaucrat.cpp
-badd +1 ~/CPP/05md/ex00/Makefile
-badd +1 ~/CPP/05md/ex00/Bureaucrat.hpp
-badd +38 ~/CPP/05md/ex00/main.cpp
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
-set winheight=1 winwidth=20 shortmess=filnxtToOS
+set winheight=1 winwidth=20
+let &shortmess = s:shortmess_save
 let &winminheight = s:save_winminheight
 let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"

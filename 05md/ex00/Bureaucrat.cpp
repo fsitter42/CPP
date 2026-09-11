@@ -1,6 +1,15 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
+int Bureaucrat::isValidGrade_(int grade) const
+{
+	if (grade > this->_worstGrade)
+		throw GradeTooLowException();
+	else if (grade < this->_bestGrade)
+		throw GradeTooHighException();
+	return (grade);
+}
+
 Bureaucrat::Bureaucrat() : name_("Boai"), grade_(150)
 {
 	std::cout << "Default Contructor called\n";
@@ -49,30 +58,16 @@ int Bureaucrat::getGrade() const
 
 bool Bureaucrat::increment(const unsigned int steps)
 {
-	if (this->grade_ - steps < 1)
-	{
-		throw GradeTooHighException();
-		return (false);
-	}
-	else
-	{
-		this->grade_ = this->grade_ - steps;
-		return (true);
-	}
+	if (isValidGrade_(this->grade_ - steps))
+		grade_ -= steps;
+	return (true);
 }
 
 bool Bureaucrat::decrement(const unsigned int steps)
 {
-	if (this->grade_ + steps > 150)
-	{
-		throw GradeTooLowException();
-		return (false);
-	}
-	else
-	{
-		this->grade_ = this->grade_ + steps;
-		return (true);
-	}
+	if (isValidGrade_(this->grade_ + steps))
+		grade_ += steps;
+	return (true);
 }
 
 /*
