@@ -10,7 +10,7 @@ int Bureaucrat::isValidGrade_(int grade) const
 	return (grade);
 }
 
-Bureaucrat::Bureaucrat() : name_("Boai"), grade_(150)
+Bureaucrat::Bureaucrat() : name_("Boai"), grade_(_worstGrade)
 {
 	std::cout << "Default Contructor called\n";
 }
@@ -35,12 +35,12 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Destructor called\n";
 }
 
-Bureaucrat::Bureaucrat(const std::string& name) : name_(name), grade_(150)
+Bureaucrat::Bureaucrat(const std::string& name) : name_(name), grade_(_worstGrade)
 {
 	std::cout << "Name Constructor called\n";
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : name_(name), grade_(grade)
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : name_(name), grade_(isValidGrade_(grade))
 {
 	std::cout << "Name and Grade Constructor called\n";
 }
@@ -70,7 +70,11 @@ bool Bureaucrat::decrement(const unsigned int steps)
 	return (true);
 }
 
+std::ostream& operator<<(std::ostream& stream, Bureaucrat const& obj)
+{
+	stream << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
+	return (stream);	
+}
 /*
-std::ostream& operator<<(std::ostream& stream, Bureaucrat const& obj);
 std::ostream& operator<<(std::ostream& stream, Bureaucrat const* obj);
 */

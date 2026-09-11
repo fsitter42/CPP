@@ -26,13 +26,46 @@ int main(void)
 	//b.decrement(2);
 	try
 	{
+			std::cout << b << "\n";
 			b.decrement(42);
 			std::cout << a.getGrade() << "\n";
 			std::cout << d.getGrade() << "\n";
 			std::cout << b.getGrade() << "\n";
 	}
-	catch (...)
+	catch (std::exception& e)
 	{
+		std::cout << "Exception triggered " << e.what() << std::endl;
+		std::cout << "fAAAAA\n";
+	}
+	try
+	{
+			std::cout << a << "\n";
+			a.increment(42);
+			std::cout << a.getGrade() << "\n";
+			std::cout << d.getGrade() << "\n";
+			std::cout << b.getGrade() << "\n";
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Exception triggered " << e.what() << std::endl;
+		std::cout << "fAAAAA\n";
+	}
+	try
+	{
+		Bureaucrat f("F", -1);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Exception triggered " << e.what() << std::endl;
+		std::cout << "fAAAAA\n";
+	}
+	try
+	{
+		Bureaucrat f("F", 151);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Exception triggered " << e.what() << std::endl;
 		std::cout << "fAAAAA\n";
 	}
 }
