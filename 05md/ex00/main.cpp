@@ -35,7 +35,7 @@ int main(void)
 	catch (std::exception& e)
 	{
 		std::cout << "Exception triggered " << e.what() << std::endl;
-		std::cout << "fAAAAA\n";
+		std::cout << "fAAAAA  1\n";
 	}
 	try
 	{
@@ -48,7 +48,7 @@ int main(void)
 	catch (std::exception& e)
 	{
 		std::cout << "Exception triggered " << e.what() << std::endl;
-		std::cout << "fAAAAA\n";
+		std::cout << "fAAAAA  2\n";
 	}
 	try
 	{
@@ -57,7 +57,7 @@ int main(void)
 	catch (std::exception& e)
 	{
 		std::cout << "Exception triggered " << e.what() << std::endl;
-		std::cout << "fAAAAA\n";
+		std::cout << "fAAAAA 3\n";
 	}
 	try
 	{
@@ -66,6 +66,17 @@ int main(void)
 	catch (std::exception& e)
 	{
 		std::cout << "Exception triggered " << e.what() << std::endl;
-		std::cout << "fAAAAA\n";
+		std::cout << "fAAAAA 4\n";
+	}
+	try
+	{
+        Bureaucrat g("G", 1);
+        Bureaucrat h("H", 150);
+        std::cout << g << "\n" << h << "\n";
+	}
+	catch (std::exception& e)
+	{
+        std::cout << "Exception triggered " << e.what() << std::endl;
+        std::cout << "fAAAAA 5\n";
 	}
 }

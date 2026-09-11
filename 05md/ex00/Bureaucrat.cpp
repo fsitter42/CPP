@@ -58,16 +58,14 @@ int Bureaucrat::getGrade() const
 
 bool Bureaucrat::increment(const unsigned int steps)
 {
-	if (isValidGrade_(this->grade_ - steps))
-		grade_ -= steps;
+	grade_ = isValidGrade_(this->grade_ - static_cast<int>(steps));
 	return (true);
 }
 
 bool Bureaucrat::decrement(const unsigned int steps)
 {
-	if (isValidGrade_(this->grade_ + steps))
-		grade_ += steps;
-	return (true);
+    grade_ = isValidGrade_(this->grade_ + static_cast<int>(steps));
+    return (true);
 }
 
 std::ostream& operator<<(std::ostream& stream, Bureaucrat const& obj)
@@ -75,6 +73,3 @@ std::ostream& operator<<(std::ostream& stream, Bureaucrat const& obj)
 	stream << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
 	return (stream);	
 }
-/*
-std::ostream& operator<<(std::ostream& stream, Bureaucrat const* obj);
-*/

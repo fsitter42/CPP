@@ -48,6 +48,5 @@ class Bureaucrat
 };
 
 std::ostream& operator<<(std::ostream& stream, Bureaucrat const& obj);
-std::ostream& operator<<(std::ostream& stream, Bureaucrat const* obj);
 
 #endif
