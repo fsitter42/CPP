@@ -38,11 +38,11 @@ void ShrubberyCreationForm::vExecute(Bureaucrat const& executor) const
 {
 	(void) executor; // TODO loeschen
 	std::string outname = this->getTarget() + "_shrubbery";
-    std::ofstream outf(outname.c_str());
-    if (!outf)
-    {
-        std::cerr << "ERROR: outfile\n";
-        throw 42; // TODO main catch ...
-    }
+	std::ofstream outf(outname.c_str());
+	if (!outf)
+	{
+		std::cerr << "ERROR: outfile\n";
+		throw 42; // TODO main catch ...
+	}
 	outf << "ASCII trees" << std::endl;
 }

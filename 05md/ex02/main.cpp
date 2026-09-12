@@ -41,11 +41,22 @@ int	main(void)
 	std::cout << "\n\n\n\n";
 	try
 	{
+		b2.executeForm(scf);
 		b2.signForm(scf);
+		b2.executeForm(scf);
 	}
 	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-
+	std::cout << "\n\n\n\n";
+	try
+	{
+		b1.executeForm(scf);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n\n\n\n";
 }

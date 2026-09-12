@@ -4,7 +4,7 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/CPP/05md/ex01
+cd ~/CPP/05md/ex02
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -14,22 +14,21 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +9 Makefile
-badd +1 Form.hpp
-badd +1 Bureaucrat.hpp
-badd +1 Bureaucrat.cpp.replace
-badd +59 Form.cpp
-badd +1 main.cpp
-badd +1 Session.vim
-badd +1 main
-badd +0 ~/CPP/05md/ex01
+badd +0 main.cpp
+badd +0 Bureaucrat.cpp
+badd +0 ShrubberyCreationForm.cpp
+badd +0 AForm.cpp
+badd +0 AForm.hpp
+badd +0 ShrubberyCreationForm.hpp
 argglobal
 %argdel
-$argadd ~/CPP/05md/ex01
+$argadd main.cpp
 set stal=2
 tabnew +setlocal\ bufhidden=wipe
+tabnew +setlocal\ bufhidden=wipe
+tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit ~/CPP/05md/ex01
+edit main.cpp
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -41,25 +40,40 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 30) / 61)
+let s:l = 62 - ((61 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 62
 normal! 0
-lcd ~/CPP/05md/ex01
 tabnext
-edit ~/CPP/05md/ex01/Form.hpp
+edit Bureaucrat.cpp
+argglobal
+balt main.cpp
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 107 - ((60 * winheight(0) + 30) / 61)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 107
+normal! 0
+tabnext
+edit ShrubberyCreationForm.hpp
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
 1wincmd h
-wincmd w
-wincmd _ | wincmd |
-split
-1wincmd k
 wincmd w
 let &splitbelow = s:save_splitbelow
 let &splitright = s:save_splitright
@@ -70,9 +84,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-wincmd =
+exe 'vert 1resize ' . ((&columns * 114 + 114) / 229)
+exe 'vert 2resize ' . ((&columns * 114 + 114) / 229)
 argglobal
-balt ~/CPP/05md/ex01/Form.cpp
+balt ShrubberyCreationForm.cpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -91,8 +106,8 @@ keepjumps 1
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/CPP/05md/ex01/Form.cpp", ":p")) | buffer ~/CPP/05md/ex01/Form.cpp | else | edit ~/CPP/05md/ex01/Form.cpp | endif
-balt ~/CPP/05md/ex01/main.cpp
+if bufexists(fnamemodify("ShrubberyCreationForm.cpp", ":p")) | buffer ShrubberyCreationForm.cpp | else | edit ShrubberyCreationForm.cpp | endif
+balt ShrubberyCreationForm.hpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -103,16 +118,57 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 2 - ((0 * winheight(0) + 9) / 19)
+let s:l = 1 - ((0 * winheight(0) + 30) / 60)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 2
+keepjumps 1
+normal! 0
+wincmd w
+exe 'vert 1resize ' . ((&columns * 114 + 114) / 229)
+exe 'vert 2resize ' . ((&columns * 114 + 114) / 229)
+tabnext
+edit AForm.hpp
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 114 + 114) / 229)
+exe 'vert 2resize ' . ((&columns * 114 + 114) / 229)
+argglobal
+balt AForm.cpp
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 30) / 60)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/CPP/05md/ex01/main.cpp", ":p")) | buffer ~/CPP/05md/ex01/main.cpp | else | edit ~/CPP/05md/ex01/main.cpp | endif
-balt ~/CPP/05md/ex01/Form.cpp
+if bufexists(fnamemodify("AForm.cpp", ":p")) | buffer AForm.cpp | else | edit AForm.cpp | endif
+balt AForm.hpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -123,16 +179,16 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 10 - ((9 * winheight(0) + 9) / 19)
+let s:l = 1 - ((0 * winheight(0) + 30) / 60)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 10
-normal! 022|
+keepjumps 1
+normal! 0
 wincmd w
-3wincmd w
-wincmd =
-tabnext 2
+exe 'vert 1resize ' . ((&columns * 114 + 114) / 229)
+exe 'vert 2resize ' . ((&columns * 114 + 114) / 229)
+tabnext 3
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
