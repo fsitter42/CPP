@@ -1,0 +1,13 @@
+todo
+
+
+in Bureaucrat.cpp/.hpp -> executeForm(AForm const & form) const  einfuegen
+
+in ShrubberyCreationForm.cpp ->
+    void ShrubberyCreationForm::vExecute(Bureaucrat const& executor) const fertig machen
+    throw 42 checken
+
+
+put test in main.cpp
+
+implement other 2 concrete classes
