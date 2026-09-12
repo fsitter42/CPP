@@ -14,17 +14,14 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +9 Makefile
+badd +81 Bureaucrat.cpp
+badd +0 Form.cpp
 badd +1 Form.hpp
-badd +1 Bureaucrat.hpp
-badd +1 Bureaucrat.cpp.replace
-badd +59 Form.cpp
+badd +3 Bureaucrat.hpp
 badd +0 main.cpp
-badd +0 Session.vim
-badd +0 main
 argglobal
 %argdel
-$argadd ~/CPP/05md/ex01/
+$argadd .
 set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
@@ -40,42 +37,16 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 8 - ((7 * winheight(0) + 30) / 61)
+let s:l = 13 - ((12 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 8
+keepjumps 13
 normal! 0
 lcd ~/CPP/05md/ex01
 tabnext
-edit ~/CPP/05md/ex01/Form.hpp
-let s:save_splitbelow = &splitbelow
-let s:save_splitright = &splitright
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
-let &splitbelow = s:save_splitbelow
-let &splitright = s:save_splitright
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-exe 'vert 1resize ' . ((&columns * 81 + 114) / 228)
-exe '2resize ' . ((&lines * 29 + 31) / 63)
-exe 'vert 2resize ' . ((&columns * 146 + 114) / 228)
-exe '3resize ' . ((&lines * 30 + 31) / 63)
-exe 'vert 3resize ' . ((&columns * 146 + 114) / 228)
+edit ~/CPP/05md/ex01/main.cpp
 argglobal
-balt ~/CPP/05md/ex01/Form.cpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -86,59 +57,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 30) / 60)
+let s:l = 4 - ((3 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 4
 normal! 0
-wincmd w
-argglobal
-if bufexists(fnamemodify("~/CPP/05md/ex01/Form.cpp", ":p")) | buffer ~/CPP/05md/ex01/Form.cpp | else | edit ~/CPP/05md/ex01/Form.cpp | endif
-balt ~/CPP/05md/ex01/main.cpp
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 2 - ((1 * winheight(0) + 14) / 29)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 2
-normal! 0
-wincmd w
-argglobal
-if bufexists(fnamemodify("~/CPP/05md/ex01/main.cpp", ":p")) | buffer ~/CPP/05md/ex01/main.cpp | else | edit ~/CPP/05md/ex01/main.cpp | endif
-balt ~/CPP/05md/ex01/Form.cpp
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 10 - ((9 * winheight(0) + 15) / 30)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 10
-normal! 022|
-wincmd w
-3wincmd w
-exe 'vert 1resize ' . ((&columns * 81 + 114) / 228)
-exe '2resize ' . ((&lines * 29 + 31) / 63)
-exe 'vert 2resize ' . ((&columns * 146 + 114) / 228)
-exe '3resize ' . ((&lines * 30 + 31) / 63)
-exe 'vert 3resize ' . ((&columns * 146 + 114) / 228)
 tabnext 2
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
@@ -147,8 +71,6 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
-let &winminheight = s:save_winminheight
-let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

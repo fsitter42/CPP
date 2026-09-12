@@ -2,6 +2,7 @@
 # define FORM_HPP
 
 #include "bLimits.h"
+#include "Bureaucrat.hpp"
 #include <string>
 #include <iostream>
 

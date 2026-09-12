@@ -6,6 +6,8 @@
 #include <string>
 #include <iostream>
 
+class Form;
+
 class Bureaucrat
 {
     private:
@@ -46,7 +48,7 @@ class Bureaucrat
 			return ("Grade too low boai.. ");
 		}
 	};
-	void signForm(const Form& form);
+	void signForm(Form& form);
 };
 
 std::ostream& operator<<(std::ostream& stream, Bureaucrat const& obj);

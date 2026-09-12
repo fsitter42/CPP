@@ -68,6 +68,19 @@ bool Bureaucrat::decrement(const unsigned int steps)
     return (true);
 }
 
+void Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << this->getName() << " could not sign " << form.getName() << " because "<<  e.what() << "\n";
+	}
+}
+
 std::ostream& operator<<(std::ostream& stream, Bureaucrat const& obj)
 {
 	stream << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";

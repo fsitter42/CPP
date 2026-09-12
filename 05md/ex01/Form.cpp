@@ -49,6 +49,13 @@ bool Form::getIsSigned() const
 	return(this->is_signed_);
 }
 
+void Form::beSigned(const Bureaucrat& bureaucrat)
+{
+	if (bureaucrat.getGrade() > this->getGradeToSign())
+		throw GradeTooLowException();	
+	this->is_signed_ = true;
+}
+
 std::ostream& operator<<(std::ostream& stream, Form const& obj)
 {
 	stream << obj.getName() << "\nMin Level to sign: " << obj.getGradeToSign() << ".";
