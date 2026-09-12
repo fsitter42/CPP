@@ -95,7 +95,7 @@ normal! 0
 wincmd w
 argglobal
 if bufexists(fnamemodify("~/CPP/05md/ex01/Form.cpp", ":p")) | buffer ~/CPP/05md/ex01/Form.cpp | else | edit ~/CPP/05md/ex01/Form.cpp | endif
-balt ~/CPP/05md/ex01/main
+balt ~/CPP/05md/ex01/main.cpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -106,15 +106,15 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 60 - ((26 * winheight(0) + 14) / 29)
+let s:l = 2 - ((1 * winheight(0) + 14) / 29)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 60
-normal! 012|
+keepjumps 2
+normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/CPP/05md/ex01/main", ":p")) | buffer ~/CPP/05md/ex01/main | else | edit ~/CPP/05md/ex01/main | endif
+if bufexists(fnamemodify("~/CPP/05md/ex01/main.cpp", ":p")) | buffer ~/CPP/05md/ex01/main.cpp | else | edit ~/CPP/05md/ex01/main.cpp | endif
 balt ~/CPP/05md/ex01/Form.cpp
 setlocal fdm=manual
 setlocal fde=0
@@ -126,12 +126,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 15) / 30)
+let s:l = 10 - ((9 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 10
+normal! 022|
 wincmd w
 3wincmd w
 exe 'vert 1resize ' . ((&columns * 81 + 114) / 228)
