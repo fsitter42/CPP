@@ -9,6 +9,9 @@ class	Bureaucrat;
 class ShrubberyCreationForm : public AForm
 {
   private:
+	// class attributes
+	static const int _gradeToSign = 145;
+	static const int _gradeToExec = 137;
 	// attributes
 	const std::string target_;
 

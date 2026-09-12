@@ -1,4 +1,4 @@
-NAME        = ex01
+NAME        = ex02
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98 -Wpedantic
 DFLAGS      = -MMD -MP
@@ -6,7 +6,8 @@ RM          = rm -f
 
 SRC         = main.cpp \
               Bureaucrat.cpp \
-	          AForm.cpp
+	          AForm.cpp \
+			  ShrubberyCreationForm.cpp
 
 OBJ_DIR     = obj
 
