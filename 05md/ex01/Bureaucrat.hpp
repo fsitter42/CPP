@@ -2,6 +2,7 @@
 # define BUREAUCRAT_HPP
 
 #include "bLimits.h"
+#include "Form.hpp"
 #include <string>
 #include <iostream>
 
@@ -31,21 +32,21 @@ class Bureaucrat
         bool increment(const unsigned int steps);
         bool decrement(const unsigned int steps);
 
-		class GradeTooHighException : public std::exception
+	class GradeTooHighException : public std::exception
+	{
+		virtual const char* what() const throw ()
 		{
-			virtual const char* what() const throw ()
-			{
-				return ("Grade too high boai.. ");
-			}
-		};
-
-		class GradeTooLowException : public std::exception
+			return ("Grade too high boai.. ");
+		}
+	};
+	class GradeTooLowException : public std::exception
+	{
+		virtual const char* what() const throw ()
 		{
-			virtual const char* what() const throw ()
-			{
-				return ("Grade too low boai.. ");
-			}
-		};
+			return ("Grade too low boai.. ");
+		}
+	};
+	void signForm(const Form& form);
 };
 
 std::ostream& operator<<(std::ostream& stream, Bureaucrat const& obj);
