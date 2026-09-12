@@ -3,11 +3,11 @@
 
 int	main(void)
 {
-	Form		a;
+	AForm		a;
 	Bureaucrat	j;
 
 	std::cout << a << std::endl;
-	Form b("Very important Form", 3, 1);
+	AForm b("Very important Form", 3, 1);
 	std::cout << b << std::endl;
 	Bureaucrat i("El Presidente", 1);
 	std::cout << i << std::endl;

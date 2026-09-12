@@ -1,12 +1,12 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include <string>
 
 class	Bureaucrat;
 
-class Form
+class AForm
 {
   private:
 	// attributes
@@ -19,12 +19,12 @@ class Form
 
   public:
 	// OCF Mandatory
-	Form();
-	Form(const Form &other);
-	Form &operator=(const Form &other);
-	~Form();
+	AForm();
+	AForm(const AForm &other);
+	AForm &operator=(const AForm &other);
+	~AForm();
 	// specific
-	Form(const std::string &name, int gradeToSign, int gradeToExexute);
+	AForm(const std::string &name, int gradeToSign, int gradeToExexute);
 	// getter methods
 	const std::string &getName() const;
 	bool getIsSigned() const;
@@ -49,6 +49,6 @@ class Form
 	};
 };
 
-std::ostream &operator<<(std::ostream &stream, Form const &obj);
+std::ostream &operator<<(std::ostream &stream, AForm const &obj);
 
 #endif

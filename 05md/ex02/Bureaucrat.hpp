@@ -5,7 +5,7 @@
 # include <iostream>
 # include <string>
 
-class	Form;
+class	AForm;
 
 class Bureaucrat
 {
@@ -47,7 +47,7 @@ class Bureaucrat
 			return ("Grade too low boai.. ");
 		}
 	};
-	void signForm(Form &form);
+	void signForm(AForm &form);
 };
 
 std::ostream &operator<<(std::ostream &stream, Bureaucrat const &obj);

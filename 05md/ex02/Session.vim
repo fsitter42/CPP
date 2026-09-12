@@ -12,9 +12,6 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd .
-set stal=2
-tabnew
-tabrewind
 edit ~/CPP/05md/ex02
 argglobal
 setlocal fdm=manual
@@ -27,36 +24,14 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 14 - ((13 * winheight(0) + 19) / 39)
+let s:l = 11 - ((10 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 14
+keepjumps 11
 normal! 0
 lcd ~/CPP/05md/ex02
-tabnext
-edit ~/CPP/05md/ex02/AForm.hpp
-argglobal
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 54 - ((37 * winheight(0) + 19) / 38)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 54
-normal! 0
-lcd ~/CPP/05md/ex02
-tabnext 2
-set stal=1
-badd +0 ~/CPP/05md/ex02/AForm.hpp
+tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
