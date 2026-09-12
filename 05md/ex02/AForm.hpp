@@ -22,7 +22,7 @@ class AForm
 	AForm();
 	AForm(const AForm &other);
 	AForm &operator=(const AForm &other);
-	~AForm();
+	virtual ~AForm();
 	// specific
 	AForm(const std::string &name, int gradeToSign, int gradeToExexute);
 	// getter methods
@@ -31,7 +31,9 @@ class AForm
 	int getGradeToSign() const;
 	int getGradeToExecute() const;
 	// setter methods
-	void beSigned(const Bureaucrat &bureaucrat);
+	void beSigned(const Bureaucrat &signer);
+	void execute(const Bureaucrat& executor) const;
+	virtual void vExecute(Bureaucrat const& executor) const = 0;
 
 	class GradeTooHighException : public std::exception
 	{
@@ -45,6 +47,13 @@ class AForm
 		virtual const char *what() const throw()
 		{
 			return ("Grade too low boai.. ");
+		}
+	};
+	class NotSignedExcetption : public std::exception
+	{
+		virtual const char *what() const throw()
+		{
+			return ("Not signed boai.. ");
 		}
 	};
 };

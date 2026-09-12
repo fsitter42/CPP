@@ -59,11 +59,20 @@ bool AForm::getIsSigned() const
 	return(this->is_signed_);
 }
 
-void AForm::beSigned(const Bureaucrat& bureaucrat)
+void AForm::beSigned(const Bureaucrat& signer)
 {
-	if (bureaucrat.getGrade() > this->getGradeToSign())
+	if (signer.getGrade() > this->getGradeToSign())
 		throw GradeTooLowException();	
 	this->is_signed_ = true;
+}
+
+void AForm::execute(const Bureaucrat& executor) const 
+{
+	if (this->is_signed_ == false)
+		throw NotSignedExcetption();
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw GradeTooLowException();	
+	this->vExecute(executor);
 }
 
 std::ostream& operator<<(std::ostream& stream, AForm const& obj)
