@@ -1,4 +1,5 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 int Form::isValidGrade_(int grade) const
 {
@@ -17,7 +18,15 @@ Form::Form() : name_("Empty Sheet"), gradeToSign_(WORST_GRADE), gradeToExexute_(
 Form::Form(const Form& other) : name_(other.name_), gradeToSign_(other.gradeToSign_), gradeToExexute_(other.gradeToExexute_), is_signed_(other.is_signed_)
 {
 	std::cout << "Form Copy Constructor called\n";
-}	
+}
+
+Form& Form::operator=(const Form& other)
+{
+    std::cout << "Form Copy Assignment Operator called\n";
+    if (this != &other)
+        is_signed_ = other.is_signed_;
+    return (*this);
+}
 
 Form::~Form()
 {

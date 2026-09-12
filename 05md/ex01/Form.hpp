@@ -2,7 +2,6 @@
 # define FORM_HPP
 
 #include "bLimits.h"
-#include "Bureaucrat.hpp"
 #include <string>
 #include <iostream>
 
@@ -19,13 +18,12 @@ class Form
 	bool			is_signed_;
 	// priv methods
         int			isValidGrade_(int grade) const;
-	//forbidden
-        Form&			operator=(const Form& other);
         
     public:
         // OCF Mandatory
         Form();
         Form(const Form& other);
+        Form& operator=(const Form& other);
         ~Form();
         // specific
         Form(const std::string& name, int gradeToSign, int gradeToExexute);

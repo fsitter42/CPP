@@ -6,7 +6,7 @@ RM          = rm -f
 
 SRC         = main.cpp \
               Bureaucrat.cpp \
-	      Form.cpp
+	          Form.cpp
 
 OBJ_DIR     = obj
 
