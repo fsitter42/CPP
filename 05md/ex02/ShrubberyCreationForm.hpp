@@ -4,8 +4,6 @@
 # include "AForm.hpp"
 # include <string>
 
-class	Bureaucrat;
-
 class ShrubberyCreationForm : public AForm
 {
   private:

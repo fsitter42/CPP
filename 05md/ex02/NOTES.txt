@@ -1,11 +1,12 @@
 todo
 //////////////////////////////////////////////////////////////////////////////////////////
 
-in ShrubberyCreationForm.cpp ->
-    void ShrubberyCreationForm::vExecute(Bureaucrat const& executor) const fertig machen
-    throw 42 checken
-
-
-put test in main.cpp
-
 implement other 2 concrete classes
+
+if i dont need executor in vExecute delte it from funtion
+
+
+from:
+	virtual void vExecute(Bureaucrat const& executor) const = 0;
+to:
+	virtual void vExecute(void) const = 0;
