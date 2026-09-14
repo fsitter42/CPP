@@ -36,7 +36,7 @@ const std::string& ShrubberyCreationForm::getTarget() const
 
 void ShrubberyCreationForm::vExecute(Bureaucrat const& executor) const
 {
-	(void) executor; // TODO loeschen
+	(void) executor;
 	std::string outname = this->getTarget() + "_shrubbery";
 	std::ofstream outf(outname.c_str());
 	if (!outf)

@@ -6,8 +6,10 @@ RM          = rm -f
 
 SRC         = main.cpp \
               Bureaucrat.cpp \
-	          AForm.cpp \
-			  ShrubberyCreationForm.cpp
+	      AForm.cpp \
+	      ShrubberyCreationForm.cpp \
+	      RobotomyRequestForm.cpp \
+	      PresidentialPardonForm.cpp
 
 OBJ_DIR     = obj
 
