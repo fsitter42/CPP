@@ -1,0 +1,22 @@
+#ifndef INTERN_HPP
+# define INTERN_HPP
+
+# include "AForm.hpp"
+# include <string>
+# include <map>
+
+class Intern
+{
+  private:
+	static std::map<std::string, AForm* (*) (const std::string&)> _formMap;
+  public:
+	// OCF Mandatory
+	Intern();
+	Intern(const Intern &other);
+	Intern &operator=(const Intern &other);
+	~Intern();
+	// methods
+	AForm *makeForm(const std::string& form, const std::string& target);
+};
+
+#endif
