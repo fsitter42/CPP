@@ -3,12 +3,23 @@
 
 # include "AForm.hpp"
 # include <string>
-# include <map>
+
+class Intern;
+
+typedef struct sFormEntry
+{
+	std::string name;
+	AForm* (Intern::*function) (const std::string& target);
+} tFormEntry;
 
 class Intern
 {
   private:
-	static std::map<std::string, AForm* (*) (const std::string&)> _formMap;
+	static tFormEntry _formList[3];
+	// methods
+	AForm *makeRRF_(const std::string& target);
+	AForm *makeSCF_(const std::string& target);
+	AForm *makePPF_(const std::string& target);
   public:
 	// OCF Mandatory
 	Intern();

@@ -1,4 +1,4 @@
-NAME        = ex02
+NAME        = ex03
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98 -Wpedantic
 DFLAGS      = -MMD -MP
@@ -9,7 +9,8 @@ SRC         = main.cpp \
 	      AForm.cpp \
 	      ShrubberyCreationForm.cpp \
 	      RobotomyRequestForm.cpp \
-	      PresidentialPardonForm.cpp
+	      PresidentialPardonForm.cpp \
+		  Intern.cpp
 
 OBJ_DIR     = obj
 

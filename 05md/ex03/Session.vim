@@ -11,12 +11,31 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd .
+$argadd main.cpp
 set stal=2
 tabnew
 tabrewind
-edit ~/CPP/05md/ex03
+edit Intern.hpp
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 63 + 63) / 127)
+exe 'vert 2resize ' . ((&columns * 63 + 63) / 127)
 argglobal
+balt main.cpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -27,16 +46,39 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 22 - ((21 * winheight(0) + 19) / 38)
+let s:l = 1 - ((0 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 22
+keepjumps 1
 normal! 0
-lcd ~/CPP/05md/ex03
+wincmd w
+argglobal
+if bufexists("main.cpp") | buffer main.cpp | else | edit main.cpp | endif
+balt Intern.hpp
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 5 - ((4 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 5
+normal! 013|
+wincmd w
+exe 'vert 1resize ' . ((&columns * 63 + 63) / 127)
+exe 'vert 2resize ' . ((&columns * 63 + 63) / 127)
 tabnext
-edit ~/CPP/05md/ex03/RobotomyRequestForm.hpp.replace
+edit Makefile
 argglobal
+balt main.cpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -47,16 +89,18 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 7 - ((6 * winheight(0) + 19) / 38)
+let s:l = 1 - ((0 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 7
-normal! 0
-lcd ~/CPP/05md/ex03
+keepjumps 1
+normal! 018|
 tabnext 2
 set stal=1
-badd +0 ~/CPP/05md/ex03/RobotomyRequestForm.hpp.replace
+badd +0 main.cpp
+badd +0 Intern.hpp
+badd +13 Makefile
+badd +35 Intern.cpp
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
