@@ -9,6 +9,16 @@ typedef struct s_IntPair
 }	t_IntPair;
 
 typedef std::map<std::string, t_IntPair> MyMap;
+typedef std::map<int, std::pair<int, int> > YourMap;
+
+void use_auto()
+{
+	YourMap map;
+	map.emplace(1, std::make_pair(600, 42));
+	
+	auto [first, second] = map[1];
+	std::cout << "Val2: " << second << std::endl;
+}
 
 void struct_as_value()
 {
@@ -23,9 +33,9 @@ void struct_as_value()
 	map["Eins Zwei"] = ez; 
 
 	std::cout << "Val1: " << map["Lieblingszahlen"].val1 << std::endl;
+	auto [first, second] = map["Lieblingszahlen"];
+	std::cout << "Val2: " << second << std::endl;
 }	
-
-typedef std::map<int, std::pair<int, int> > YourMap;
 
 void std_pair_as_value()
 {
@@ -39,4 +49,5 @@ int main()
 {
 	struct_as_value();
 	std_pair_as_value();
+	use_auto();
 }
