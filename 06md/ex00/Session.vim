@@ -14,7 +14,7 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 main.cpp
+badd +59 main.cpp
 badd +8 Makefile
 badd +1 ScalarConverter.hpp
 badd +1 ScalarConverter.cpp
@@ -22,7 +22,6 @@ argglobal
 %argdel
 $argadd ./
 set stal=2
-tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
@@ -77,33 +76,13 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 16 - ((15 * winheight(0) + 25) / 50)
+let s:l = 1 - ((0 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 16
-normal! 02|
-lcd ~/CPP/06md/ex00
-tabnext
-edit ~/CPP/06md/ex00/main.cpp
-argglobal
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 59 - ((47 * winheight(0) + 25) / 50)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 59
+keepjumps 1
 normal! 0
-tabnext 4
+tabnext 3
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
