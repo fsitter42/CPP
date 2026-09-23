@@ -1,6 +1,8 @@
+#include "ScalarConverter.hpp"
 #include <string>
 #include <iostream>
 #include <stdlib.h>
+#include <errno.h>
 
 /*
        double strtod(const char *nptr, char **endptr);
@@ -48,6 +50,10 @@ void ffloat(std::string nf)
 
 int main(int ac, char *av[])
 {
-	ffloat(av[1]);
+	//ffloat(av[1]);
 	//fdouble(av[1]);
+	if (ac != 2)
+		return (std::cout << "Wrong Number of Arguments\n", 1);
+	
+	ScalarConverter::convert(av[1]);
 }
