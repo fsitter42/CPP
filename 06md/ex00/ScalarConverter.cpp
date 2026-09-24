@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <ctype.h>
+#include <limits.h>
 
 void ScalarConverter::convert(const std::string& str)
 {
@@ -30,6 +31,10 @@ void ScalarConverter::convert(const std::string& str)
 		std::cout << "im a double\n";
 	else
 		std::cout << "im no double\n";
+	if (ScalarConverter::f_is_int(str) == true)
+		std::cout << "im a int\n";
+	else
+		std::cout << "im no int\n";
 }
 
 bool ScalarConverter::f_is_char(const std::string& s)
@@ -69,6 +74,8 @@ bool ScalarConverter::f_is_double(const std::string& s)
 	errno = 0;
 
 	strtod(s.c_str(), &eptr);
+	if (eptr == s.c_str())
+		return (false);
 	if (*eptr != '\0')
 		return (false);
 	if (errno == ERANGE)
@@ -76,3 +83,22 @@ bool ScalarConverter::f_is_double(const std::string& s)
 	return (true);
 }
 
+bool ScalarConverter::f_is_int(const std::string& s)
+{
+	if (s.find('.') == std::string::npos)
+		return (false);
+	char *eptr = NULL;
+	errno = 0;
+	
+	long l = strtol(s.c_str(), &eptr, 10);
+	if (eptr == s.c_str())
+		return (false);
+	if (*eptr != '\0')
+		return (false);
+	if (errno == ERANGE)
+		return (false);
+	if (l > INT_MAX || l < INT_MIN)
+		return (false);
+	return (true);
+}
+	

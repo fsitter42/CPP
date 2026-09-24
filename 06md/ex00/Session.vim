@@ -11,7 +11,7 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd ./
+$argadd ~/CPP/06md/ex00
 set stal=2
 tabnew
 tabrewind
@@ -27,11 +27,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 15 - ((14 * winheight(0) + 19) / 39)
+let s:l = 1 - ((0 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 15
+keepjumps 1
 normal! 0
 lcd ~/CPP/06md/ex00
 tabnext
@@ -55,7 +55,7 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 86 + 86) / 173)
 exe 'vert 2resize ' . ((&columns * 86 + 86) / 173)
 argglobal
-balt ~/CPP/06md/ex00/ScalarConverter.hpp
+balt ~/CPP/06md/ex00/main.cpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -66,12 +66,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 9 - ((8 * winheight(0) + 18) / 37)
+let s:l = 88 - ((27 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 9
-normal! 011|
+keepjumps 88
+normal! 05|
 wincmd w
 argglobal
 if bufexists("~/CPP/06md/ex00/ScalarConverter.hpp") | buffer ~/CPP/06md/ex00/ScalarConverter.hpp | else | edit ~/CPP/06md/ex00/ScalarConverter.hpp | endif
@@ -98,9 +98,10 @@ exe 'vert 1resize ' . ((&columns * 86 + 86) / 173)
 exe 'vert 2resize ' . ((&columns * 86 + 86) / 173)
 tabnext 2
 set stal=1
-badd +0 ~/CPP/06md/ex00/ScalarConverter.hpp
-badd +0 ~/CPP/06md/ex00/ScalarConverter.cpp
-badd +60 ~/CPP/06md/ex00/main.cpp
+badd +1 ~/CPP/06md/ex00
+badd +1 ~/CPP/06md/ex00/ScalarConverter.cpp
+badd +1 ~/CPP/06md/ex00/main.cpp
+badd +1 ~/CPP/06md/ex00/ScalarConverter.hpp
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
