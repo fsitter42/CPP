@@ -66,12 +66,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 88 - ((20 * winheight(0) + 18) / 37)
+let s:l = 96 - ((32 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 88
-normal! 05|
+keepjumps 96
+normal! 09|
 wincmd w
 argglobal
 if bufexists("~/CPP/06md/ex00/ScalarConverter.hpp") | buffer ~/CPP/06md/ex00/ScalarConverter.hpp | else | edit ~/CPP/06md/ex00/ScalarConverter.hpp | endif
@@ -86,13 +86,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 18) / 37)
+let s:l = 24 - ((23 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
-lcd ~/CPP/06md/ex00
+keepjumps 24
+normal! 062|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 86 + 86) / 173)
 exe 'vert 2resize ' . ((&columns * 86 + 86) / 173)
