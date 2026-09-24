@@ -85,8 +85,6 @@ bool ScalarConverter::f_is_double(const std::string& s)
 
 bool ScalarConverter::f_is_int(const std::string& s)
 {
-	if (s.find('.') == std::string::npos)
-		return (false);
 	char *eptr = NULL;
 	errno = 0;
 	
