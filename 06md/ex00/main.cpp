@@ -57,3 +57,4 @@ int main(int ac, char *av[])
 	
 	ScalarConverter::convert(av[1]);
 }
+

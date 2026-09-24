@@ -10,7 +10,7 @@ void ScalarConverter::convert(const std::string& str)
 	int i;
 	float f;
 	double d;
-	const std::string pseudo;
+	bool pseudo;
 	*/
 
 	std::cout << "I am usable and my string is " << str << std::endl;
@@ -26,6 +26,10 @@ void ScalarConverter::convert(const std::string& str)
 		std::cout << "im a float\n";
 	else
 		std::cout << "im no float\n";
+	if (ScalarConverter::f_is_double(str) == true)
+		std::cout << "im a double\n";
+	else
+		std::cout << "im no double\n";
 }
 
 bool ScalarConverter::f_is_char(const std::string& s)
@@ -57,5 +61,18 @@ bool ScalarConverter::f_is_float(const std::string& s)
 	return (true);
 }
 	
+bool ScalarConverter::f_is_double(const std::string& s)
+{
+	if (s.find('.') == std::string::npos)
+		return (false);
+	char *eptr = NULL;
+	errno = 0;
 
+	strtod(s.c_str(), &eptr);
+	if (*eptr != '\0')
+		return (false);
+	if (errno == ERANGE)
+		return (false);
+	return (true);
+}
 
