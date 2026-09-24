@@ -8,22 +8,13 @@ cd ~/CPP/06md/ex00
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
-let s:shortmess_save = &shortmess
-if &shortmess =~ 'A'
-  set shortmess=aoOA
-else
-  set shortmess=aoO
-endif
-badd +59 main.cpp
-badd +8 Makefile
-badd +1 ScalarConverter.hpp
-badd +1 ScalarConverter.cpp
+set shortmess=aoO
 argglobal
 %argdel
 $argadd ./
 set stal=2
-tabnew +setlocal\ bufhidden=wipe
-tabnew +setlocal\ bufhidden=wipe
+tabnew
+tabnew
 tabrewind
 edit ~/CPP/06md/ex00
 argglobal
@@ -37,7 +28,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 8 - ((7 * winheight(0) + 25) / 50)
+let s:l = 8 - ((7 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -57,15 +48,41 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 6 - ((5 * winheight(0) + 25) / 50)
+let s:l = 16 - ((12 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 6
-normal! 072|
+keepjumps 16
+normal! 069|
 tabnext
-edit ~/CPP/06md/ex00/ScalarConverter.hpp
+edit ~/CPP/06md/ex00/ScalarConverter.cpp
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 86 + 86) / 173)
+exe '2resize ' . ((&lines * 18 + 20) / 40)
+exe 'vert 2resize ' . ((&columns * 86 + 86) / 173)
+exe '3resize ' . ((&lines * 18 + 20) / 40)
+exe 'vert 3resize ' . ((&columns * 86 + 86) / 173)
 argglobal
+balt ~/CPP/06md/ex00/main.cpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -76,26 +93,76 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 25) / 50)
+let s:l = 52 - ((20 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 52
+normal! 023|
+wincmd w
+argglobal
+if bufexists("~/CPP/06md/ex00/ScalarConverter.hpp") | buffer ~/CPP/06md/ex00/ScalarConverter.hpp | else | edit ~/CPP/06md/ex00/ScalarConverter.hpp | endif
+balt ~/CPP/06md/ex00/main.cpp
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 22 - ((10 * winheight(0) + 9) / 18)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 22
+normal! 02|
+wincmd w
+argglobal
+if bufexists("~/CPP/06md/ex00/main.cpp") | buffer ~/CPP/06md/ex00/main.cpp | else | edit ~/CPP/06md/ex00/main.cpp | endif
+balt ~/CPP/06md/ex00/ScalarConverter.hpp
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 49 - ((17 * winheight(0) + 9) / 18)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 49
 normal! 0
+wincmd w
+exe 'vert 1resize ' . ((&columns * 86 + 86) / 173)
+exe '2resize ' . ((&lines * 18 + 20) / 40)
+exe 'vert 2resize ' . ((&columns * 86 + 86) / 173)
+exe '3resize ' . ((&lines * 18 + 20) / 40)
+exe 'vert 3resize ' . ((&columns * 86 + 86) / 173)
 tabnext 3
 set stal=1
+badd +46 ~/CPP/06md/ex00/main.cpp
+badd +8 ~/CPP/06md/ex00/Makefile
+badd +1 ~/CPP/06md/ex00/ScalarConverter.hpp
+badd +1 ~/CPP/06md/ex00/ScalarConverter.cpp
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
-set winheight=1 winwidth=20
-let &shortmess = s:shortmess_save
+set winheight=1 winwidth=20 shortmess=filnxtToOS
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
