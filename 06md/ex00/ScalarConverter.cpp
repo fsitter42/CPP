@@ -15,7 +15,17 @@ void ScalarConverter::convert(const std::string& str)
 		&ScalarConverter::f_is_double,
 		&ScalarConverter::f_is_int
 	};
+
+	int i = 0;
+	while (i < 5)
+	{
+	    if (function[i](str, v) == true)
+			break;
+		i++;
+	}
+	std::cout << i << std::endl;
 	
+	/*
 
 	std::cout << "I am usable and my string is " << str << std::endl;
 	if (function[0](str, v) == true)
@@ -39,15 +49,15 @@ void ScalarConverter::convert(const std::string& str)
 	else
 		std::cout << "im no int\n";
 
+		*/
 	if (v.c == '\0')
 		v.c = '0';
 	
-	std::cout << v.c << std::endl;
-	std::cout << v.pseudo << std::endl;
-	std::cout << v.f << std::endl;
-	std::cout << v.d << std::endl;
-	std::cout << v.i << std::endl;
-	
+	std::cout << "char: " << v.c << std::endl;
+	std::cout << "pseudo: " << v.pseudo << std::endl;
+	std::cout << "float: " << v.f << std::endl;
+	std::cout << "double: " << v.d << std::endl;
+	std::cout << "int: " << v.i << std::endl;
 }
 
 bool ScalarConverter::f_is_char(const std::string& s, tVals& v)
@@ -65,7 +75,10 @@ bool ScalarConverter::f_is_pseudo(const std::string& s, tVals& v)
 	if (s == "nan" || s == "+inf" || s == "-inf" || s == "nanf" || s == "+inff" || s == "-inff")
 	{
 		v.pseudo = true;
-		return (true);
+		if (ScalarConverter::f_is_float(s, v) == true)
+		    return (true);
+		else if (ScalarConverter::f_is_double(s, v) == true)
+		    return (true);
 	}
 	return (false);
 }
