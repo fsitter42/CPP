@@ -8,12 +8,21 @@ cd ~/CPP/06md/ex00
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
-set shortmess=aoO
+let s:shortmess_save = &shortmess
+if &shortmess =~ 'A'
+  set shortmess=aoOA
+else
+  set shortmess=aoO
+endif
+badd +1 ~/CPP/06md/ex00
+badd +1 ScalarConverter.cpp
+badd +1 main.cpp
+badd +1 ScalarConverter.hpp
 argglobal
 %argdel
 $argadd ~/CPP/06md/ex00
 set stal=2
-tabnew
+tabnew +setlocal\ bufhidden=wipe
 tabrewind
 edit ~/CPP/06md/ex00
 argglobal
@@ -27,7 +36,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 19) / 38)
+let s:l = 1 - ((0 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -52,8 +61,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 86 + 86) / 173)
-exe 'vert 2resize ' . ((&columns * 86 + 86) / 173)
+exe 'vert 1resize ' . ((&columns * 39 + 39) / 79)
+exe 'vert 2resize ' . ((&columns * 39 + 39) / 79)
 argglobal
 balt ~/CPP/06md/ex00/main.cpp
 setlocal fdm=manual
@@ -66,15 +75,15 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 96 - ((32 * winheight(0) + 18) / 37)
+let s:l = 107 - ((35 * winheight(0) + 21) / 42)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 96
-normal! 09|
+keepjumps 107
+normal! 0
 wincmd w
 argglobal
-if bufexists("~/CPP/06md/ex00/ScalarConverter.hpp") | buffer ~/CPP/06md/ex00/ScalarConverter.hpp | else | edit ~/CPP/06md/ex00/ScalarConverter.hpp | endif
+if bufexists(fnamemodify("~/CPP/06md/ex00/ScalarConverter.hpp", ":p")) | buffer ~/CPP/06md/ex00/ScalarConverter.hpp | else | edit ~/CPP/06md/ex00/ScalarConverter.hpp | endif
 balt ~/CPP/06md/ex00/main.cpp
 setlocal fdm=manual
 setlocal fde=0
@@ -86,26 +95,23 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 24 - ((23 * winheight(0) + 18) / 37)
+let s:l = 24 - ((0 * winheight(0) + 21) / 42)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 24
 normal! 062|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 86 + 86) / 173)
-exe 'vert 2resize ' . ((&columns * 86 + 86) / 173)
+exe 'vert 1resize ' . ((&columns * 39 + 39) / 79)
+exe 'vert 2resize ' . ((&columns * 39 + 39) / 79)
 tabnext 2
 set stal=1
-badd +1 ~/CPP/06md/ex00
-badd +1 ~/CPP/06md/ex00/ScalarConverter.cpp
-badd +1 ~/CPP/06md/ex00/main.cpp
-badd +1 ~/CPP/06md/ex00/ScalarConverter.hpp
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
-set winheight=1 winwidth=20 shortmess=filnxtToOS
+set winheight=1 winwidth=20
+let &shortmess = s:shortmess_save
 let &winminheight = s:save_winminheight
 let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
