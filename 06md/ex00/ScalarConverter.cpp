@@ -149,10 +149,30 @@ void ScalarConverter::f_handle(tVals& v, int type)
     {
         case 0:
             std::cout << "char: " << v.c << std::endl;
+            std::cout << "int: " << static_cast<int>(v.c) << std::endl;
+            std::cout << "float: " << static_cast<float>(v.c) << std::endl;
+            std::cout << "double: " << static_cast<double>(v.c) << std::endl;
             break ;
         case 1:
-            std::cout << "char: " << static_cast<char>(v.c) << std::endl;
-
+            std::cout << "char: impossible" << std::endl;
+            std::cout << "int: impossible" << std::endl;
+            if (v.d != 0)
+                std::cout << "float: " << static_cast<float>(v.d) << "f" << std::endl;
+            else
+                std::cout << "float: " << v.f << "f" << std::endl;
+            if (v.f != 0)
+                std::cout << "double: " << static_cast<double>(v.f) << std::endl;
+            else
+                std::cout << "double: " << v.d << std::endl;;
+            break ;
+        case 2:
+            break ;
+        case 3:
+            break ;
+        case 4:
+            break ;
+        case 5:
+            break;
 
     }
 }
