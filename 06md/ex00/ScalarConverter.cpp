@@ -24,6 +24,8 @@ void ScalarConverter::convert(const std::string& str)
 		i++;
 	}
 	std::cout << i << std::endl;
+
+	ScalarConverter::f_handle(v,i);
 	
 	/*
 
@@ -141,3 +143,16 @@ bool ScalarConverter::f_is_int(const std::string& s, tVals& v)
 	return (true);
 }
 	
+void ScalarConverter::f_handle(tVals& v, int type)
+{
+    switch (type)
+    {
+        case 0:
+            std::cout << "char: " << v.c << std::endl;
+            break ;
+        case 1:
+            std::cout << "char: " << static_cast<char>(v.c) << std::endl;
+
+
+    }
+}

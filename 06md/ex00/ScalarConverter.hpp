@@ -25,6 +25,8 @@ class ScalarConverter
 		static bool f_is_float(const std::string&, tVals&);
 		static bool f_is_double(const std::string&, tVals&);
 		static bool f_is_int(const std::string&, tVals&);
+
+		static void f_handle(tVals&, int);
 	public:
 		static void convert(const std::string&);
 };
