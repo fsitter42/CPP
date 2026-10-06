@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <ctype.h>
 #include <limits.h>
+#include <cmath>
 
 void ScalarConverter::convert(const std::string& str)
 {
@@ -23,9 +24,28 @@ void ScalarConverter::convert(const std::string& str)
 			break;
 		i++;
 	}
-	std::cout << i << std::endl;
-
-	ScalarConverter::f_handle(v,i);
+	//std::cout << i << std::endl;
+    switch (i)
+    {
+        case 0:
+            f_handleChar(v.c);
+            break ;
+        case 1:
+            f_handlePseudo(v);
+            break ;
+        case 2:
+            f_handleFloat(v.f);
+            break ;
+        case 3:
+            f_handleDouble(v.d);
+            break ;
+        case 4:
+            f_handleInt(v.i);
+            break ;
+        case 5:
+            std::cout << "Non Valid Input\n";
+            break ;
+    }
 	
 	/*
 
@@ -51,7 +71,6 @@ void ScalarConverter::convert(const std::string& str)
 	else
 		std::cout << "im no int\n";
 
-		*/
 	if (v.c == '\0')
 		v.c = '0';
 	
@@ -60,6 +79,7 @@ void ScalarConverter::convert(const std::string& str)
 	std::cout << "float: " << v.f << std::endl;
 	std::cout << "double: " << v.d << std::endl;
 	std::cout << "int: " << v.i << std::endl;
+	*/
 }
 
 bool ScalarConverter::f_is_char(const std::string& s, tVals& v)
@@ -142,37 +162,70 @@ bool ScalarConverter::f_is_int(const std::string& s, tVals& v)
 	v.i = static_cast<int>(l);
 	return (true);
 }
-	
-void ScalarConverter::f_handle(tVals& v, int type)
-{
-    switch (type)
-    {
-        case 0:
-            std::cout << "char: " << v.c << std::endl;
-            std::cout << "int: " << static_cast<int>(v.c) << std::endl;
-            std::cout << "float: " << static_cast<float>(v.c) << std::endl;
-            std::cout << "double: " << static_cast<double>(v.c) << std::endl;
-            break ;
-        case 1:
-            std::cout << "char: impossible" << std::endl;
-            std::cout << "int: impossible" << std::endl;
-            if (v.d != 0)
-                std::cout << "float: " << static_cast<float>(v.d) << "f" << std::endl;
-            else
-                std::cout << "float: " << v.f << "f" << std::endl;
-            if (v.f != 0)
-                std::cout << "double: " << static_cast<double>(v.f) << std::endl;
-            else
-                std::cout << "double: " << v.d << std::endl;;
-            break ;
-        case 2:
-            break ;
-        case 3:
-            break ;
-        case 4:
-            break ;
-        case 5:
-            break;
 
+void ScalarConverter::f_handleChar(char c)
+{
+    std::cout << "char: " << c << std::endl;
+    std::cout << "int: " << static_cast<int>(c) << std::endl;
+    std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
+}
+
+void ScalarConverter::f_handlePseudo(tVals& v)
+{
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    if (v.d != 0)
+        std::cout << "float: " << static_cast<float>(v.d) << "f" << std::endl;
+    else
+        std::cout << "float: " << v.f << "f" << std::endl;
+    if (v.f != 0)
+        std::cout << "double: " << static_cast<double>(v.f) << std::endl;
+    else
+        std::cout << "double: " << v.d << std::endl;;
+}
+
+void ScalarConverter::f_handleFloat(float f)
+{
+    std::cout << "char: ";
+    if (f < static_cast<float>(CHAR_MIN) || f > static_cast<float>(CHAR_MAX))
+        std::cout << "impossible" << std::endl;
+    else
+    {
+        char c = static_cast<char>(f);
+        if (isprint(static_cast<unsigned char>(c)))
+            std::cout << "'" << c << "'" << std::endl;
+        else
+            std::cout << "Non displayable" << std::endl;
     }
+    std::cout << "int: ";
+    if (f < static_cast<float>(INT_MIN) || f > static_cast<float>(INT_MAX))
+        std::cout << "impossible" << std::endl;
+    else
+        std::cout << static_cast<int>(f) << std::endl;
+    std::cout << "float: ";
+    if (f == std::floor(f))
+        std::cout << f << ".0";
+    else
+        std::cout << f;
+    std::cout << "f" << std::endl;
+    std::cout << "double: ";
+    double d = static_cast<double>(f);
+    if (d == std::floor(d))
+        std::cout << d << ".0";
+    else
+        std::cout << d;
+    std::cout << std::endl;
+}
+
+void ScalarConverter::f_handleDouble(double d)
+{
+    (void) d;
+    std::cout << "yey\n";
+}
+
+void ScalarConverter::f_handleInt(int i)
+{
+    (void) i;
+    std::cout << "yey\n";
 }

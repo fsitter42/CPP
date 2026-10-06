@@ -21,12 +21,16 @@ class ScalarConverter
 		~ScalarConverter();
 
 		static bool f_is_char(const std::string&, tVals&);
-		static bool f_is_pseudo(const std::string&, tVals& v);
+		static bool f_is_pseudo(const std::string&, tVals&);
 		static bool f_is_float(const std::string&, tVals&);
 		static bool f_is_double(const std::string&, tVals&);
 		static bool f_is_int(const std::string&, tVals&);
 
-		static void f_handle(tVals&, int);
+		static void f_handleChar(char c);
+		static void f_handlePseudo(tVals& v);
+		static void f_handleFloat(float f);
+		static void f_handleDouble(double d);
+		static void f_handleInt(int i);
 	public:
 		static void convert(const std::string&);
 };
