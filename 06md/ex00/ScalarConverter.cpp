@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+#include <cfloat>
 #include <stdlib.h>
 #include <errno.h>
 #include <ctype.h>
@@ -24,7 +25,6 @@ void ScalarConverter::convert(const std::string& str)
 			break;
 		i++;
 	}
-	//std::cout << i << std::endl;
     switch (i)
     {
         case 0:
@@ -46,40 +46,6 @@ void ScalarConverter::convert(const std::string& str)
             std::cout << "Non Valid Input\n";
             break ;
     }
-	
-	/*
-
-	std::cout << "I am usable and my string is " << str << std::endl;
-	if (function[0](str, v) == true)
-		std::cout << "im a char\n";
-	else
-		std::cout << "im no char\n";
-	if (function[1](str, v) == true)
-		std::cout << "im a pseudo\n";
-	else
-		std::cout << "im no pseudo\n";
-	if (function[2](str, v) == true)
-		std::cout << "im a float\n";
-	else
-		std::cout << "im no float\n";
-	if (function[3](str, v) == true)
-		std::cout << "im a double\n";
-	else
-		std::cout << "im no double\n";
-	if (function[4](str, v) == true)
-		std::cout << "im a int\n";
-	else
-		std::cout << "im no int\n";
-
-	if (v.c == '\0')
-		v.c = '0';
-	
-	std::cout << "char: " << v.c << std::endl;
-	std::cout << "pseudo: " << v.pseudo << std::endl;
-	std::cout << "float: " << v.f << std::endl;
-	std::cout << "double: " << v.d << std::endl;
-	std::cout << "int: " << v.i << std::endl;
-	*/
 }
 
 bool ScalarConverter::f_is_char(const std::string& s, tVals& v)
@@ -165,7 +131,7 @@ bool ScalarConverter::f_is_int(const std::string& s, tVals& v)
 
 void ScalarConverter::f_handleChar(char c)
 {
-    std::cout << "char: " << c << std::endl;
+    std::cout << "char: '" << c << "'" << std::endl;
     std::cout << "int: " << static_cast<int>(c) << std::endl;
     std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
     std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
@@ -220,12 +186,61 @@ void ScalarConverter::f_handleFloat(float f)
 
 void ScalarConverter::f_handleDouble(double d)
 {
-    (void) d;
-    std::cout << "yey\n";
+    std::cout << "char: ";
+    if (d < static_cast<double>(CHAR_MIN) || d > static_cast<double>(CHAR_MAX))
+        std::cout << "impossible" << std::endl;
+    else
+    {
+        char c = static_cast<char>(d);
+        if (isprint(static_cast<unsigned char>(c)))
+            std::cout << "'" << c << "'" << std::endl;
+        else
+            std::cout << "Non displayable" << std::endl;
+    }
+    std::cout << "int: ";
+    if (d < static_cast<double>(INT_MIN) || d > static_cast<double>(INT_MAX))
+        std::cout << "impossible" << std::endl;
+    else
+        std::cout << static_cast<int>(d) << std::endl;
+    std::cout << "float: ";
+    if (d > static_cast<double>(FLT_MAX) || d < -static_cast<double>(FLT_MAX))
+        std::cout << "impossible" << std::endl;
+    else
+    {
+        float f = static_cast<float>(d);
+        if (f == std::floor(f))
+            std::cout << f << ".0";
+        else
+            std::cout << f;
+        std::cout << "f" << std::endl;
+    }
+    std::cout << "double: ";
+    if (d == std::floor(d))
+        std::cout << d << ".0";
+    else
+        std::cout << d;
+    std::cout << std::endl;
 }
 
 void ScalarConverter::f_handleInt(int i)
 {
-    (void) i;
-    std::cout << "yey\n";
+    std::cout << "char: ";
+    if (i < static_cast<int>(CHAR_MIN) || i > static_cast<int>(CHAR_MAX))
+        std::cout << "impossible" << std::endl;
+    else
+    {
+        char c = static_cast<char>(i);
+        if (isprint(static_cast<unsigned char>(c)))
+            std::cout << "'" << c << "'" << std::endl;
+        else
+            std::cout << "Non displayable" << std::endl;
+    }
+    std::cout << "int: ";
+    std::cout << i << std::endl;
+    std::cout << "float: ";
+    float f = static_cast<float>(i);
+    std::cout << f << ".0" << "f" << std::endl;
+    std::cout << "double: ";
+    double d = static_cast<double>(i);
+    std::cout << d << ".0" << std::endl;
 }
