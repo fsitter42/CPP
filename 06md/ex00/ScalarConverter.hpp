@@ -2,7 +2,6 @@
 # define SCALARCONVERTER_HPP
 
 #include <string>
-#include <iostream>
 
 typedef struct sVals {
 	char	c;

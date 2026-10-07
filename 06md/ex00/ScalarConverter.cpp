@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <limits.h>
 #include <cmath>
+#include <iostream>
 
 void ScalarConverter::convert(const std::string& str)
 {
