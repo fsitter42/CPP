@@ -3,6 +3,7 @@
 #include "B.hpp"
 #include "C.hpp"
 #include <iostream>
+#include <cstdlib>
 
 Base::~Base()
 {
@@ -11,21 +12,36 @@ Base::~Base()
 
 Base *generate(void)
 {
-    Base *ret = new A;
-    //randomly generate A B or C
+    Base *ret = NULL;
+    if (rand() % 3 == 0)
+        ret = new A;
+    else if (rand() % 3 == 1)
+        ret = new B;
+    else
+        ret = new C;
     return (ret);
 }
 void identify(Base* p)
 {
     A* a = dynamic_cast<A*>(p);
     if (a != NULL)
+    {
         std::cout << "A" << std::endl;
+        return ;
+    }
     B* b = dynamic_cast<B*>(p);
     if (b != NULL)
+    {
         std::cout << "B" << std::endl;
+        return ;
+    }
     C* c = dynamic_cast<C*>(p);
     if (c != NULL)
+    {
         std::cout << "C" << std::endl;
+        return ;
+    }
+    std::cout << "Unknown Type" << std::endl;
 }
 
 void identify(Base& p)
