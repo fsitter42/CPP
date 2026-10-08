@@ -1,20 +1,16 @@
-NAME        = ex02
-CXX         = c++
-CXXFLAGS    = -Wall -Wextra -Werror -std=c++98 -Wpedantic
-DFLAGS      = -MMD -MP
-RM          = rm -f
+NAME        =	ex02
+CXX         =	c++
+CXXFLAGS    =	-Wall -Wextra -Werror -std=c++98 -Wpedantic
+DFLAGS      =	-MMD -MP
+RM          =	rm -f
 
-SRC         = main.cpp \
-              Bureaucrat.cpp \
-	      AForm.cpp \
-	      ShrubberyCreationForm.cpp \
-	      RobotomyRequestForm.cpp \
-	      PresidentialPardonForm.cpp
+SRC         =	main.cpp \
+				Base.cpp
 
-OBJ_DIR     = obj
+OBJ_DIR     =	obj
 
-OBJ         = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
-DEP         = $(SRC:%.cpp=$(OBJ_DIR)/%.d)
+OBJ         =	$(SRC:%.cpp=$(OBJ_DIR)/%.o)
+DEP         =	$(SRC:%.cpp=$(OBJ_DIR)/%.d)
 
 all: $(NAME)
 
