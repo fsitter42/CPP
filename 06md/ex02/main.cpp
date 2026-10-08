@@ -17,6 +17,7 @@ int main()
     identify(a);
     identify(&b);
     identify(base);
+    identify(&base);
 
     std::cout << "Tests for generate: " << std::endl;
     for (int i = 0; i < 5; i++)
