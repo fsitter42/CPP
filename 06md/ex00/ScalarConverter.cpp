@@ -6,6 +6,7 @@
 #include <limits.h>
 #include <cmath>
 #include <iostream>
+#include <sstream>
 
 void ScalarConverter::convert(const std::string& str)
 {
@@ -35,10 +36,10 @@ void ScalarConverter::convert(const std::string& str)
             f_handlePseudo(v);
             break ;
         case 2:
-            f_handleFloat(v.f);
+            f_handleFloat(v.f, v.hex);
             break ;
         case 3:
-            f_handleDouble(v.d);
+            f_handleDouble(v.d, v.hex);
             break ;
         case 4:
             f_handleInt(v.i);
@@ -79,7 +80,7 @@ bool ScalarConverter::f_is_float(const std::string& s, tVals& v)
 	char *eptr = NULL;
 	errno = 0;
 
-	float f = strtof(s.c_str(), &eptr);
+	double f = strtod(s.c_str(), &eptr);
 	if (eptr == s.c_str())
 		return (false);
 	if (*eptr == 'f')
@@ -91,6 +92,10 @@ bool ScalarConverter::f_is_float(const std::string& s, tVals& v)
 	if (errno == ERANGE)
 		return (false);
 	v.f = f;
+	std::ostringstream oss;
+    oss << f;
+    std::string fs = oss.str();
+    v.hex = (fs.find('.') != std::string::npos || fs.find('e') != std::string::npos);
 	return (true);
 }
 	
@@ -109,6 +114,10 @@ bool ScalarConverter::f_is_double(const std::string& s, tVals& v)
 	if (errno == ERANGE)
 		return (false);
 	v.d = d;
+	std::ostringstream oss;
+    oss << d;
+    std::string ds = oss.str();
+    v.hex = (ds.find('.') != std::string::npos || ds.find('e') != std::string::npos);
 	return (true);
 }
 
@@ -152,7 +161,7 @@ void ScalarConverter::f_handlePseudo(tVals& v)
         std::cout << "double: " << v.d << std::endl;;
 }
 
-void ScalarConverter::f_handleFloat(float f)
+void ScalarConverter::f_handleFloat(double f, bool hex)
 {
     std::cout << "char: ";
     if (f < static_cast<float>(CHAR_MIN) || f > static_cast<float>(CHAR_MAX))
@@ -166,26 +175,26 @@ void ScalarConverter::f_handleFloat(float f)
             std::cout << "Non displayable" << std::endl;
     }
     std::cout << "int: ";
-    if (f < static_cast<float>(INT_MIN) || f > static_cast<float>(INT_MAX))
+    if (static_cast<double>(f) < static_cast<double>(INT_MIN) || static_cast<double>(f) > static_cast<double>(INT_MAX))
         std::cout << "impossible" << std::endl;
     else
         std::cout << static_cast<int>(f) << std::endl;
     std::cout << "float: ";
-    if (f == std::floor(f))
+    if (f == std::floor(f) && hex == false)
         std::cout << f << ".0";
     else
         std::cout << f;
     std::cout << "f" << std::endl;
     std::cout << "double: ";
     double d = static_cast<double>(f);
-    if (d == std::floor(d))
+    if (d == std::floor(d) && hex == false)
         std::cout << d << ".0";
     else
         std::cout << d;
     std::cout << std::endl;
 }
 
-void ScalarConverter::f_handleDouble(double d)
+void ScalarConverter::f_handleDouble(double d, bool hex)
 {
     std::cout << "char: ";
     if (d < static_cast<double>(CHAR_MIN) || d > static_cast<double>(CHAR_MAX))
@@ -209,14 +218,14 @@ void ScalarConverter::f_handleDouble(double d)
     else
     {
         float f = static_cast<float>(d);
-        if (f == std::floor(f))
+        if (f == std::floor(f) && hex == false)
             std::cout << f << ".0";
         else
             std::cout << f;
         std::cout << "f" << std::endl;
     }
     std::cout << "double: ";
-    if (d == std::floor(d))
+    if (d == std::floor(d) && hex == false)
         std::cout << d << ".0";
     else
         std::cout << d;

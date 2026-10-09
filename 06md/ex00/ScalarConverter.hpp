@@ -6,9 +6,10 @@
 typedef struct sVals {
 	char	c;
 	int		i;
-	float	f;
+	double	f;
 	double	d;
 	bool	pseudo;
+	bool    hex;
 }			tVals;	
 
 class ScalarConverter
@@ -27,8 +28,8 @@ class ScalarConverter
 
 		static void f_handleChar(char c);
 		static void f_handlePseudo(tVals& v);
-		static void f_handleFloat(float f);
-		static void f_handleDouble(double d);
+		static void f_handleFloat(double f, bool hex);
+		static void f_handleDouble(double d, bool hex);
 		static void f_handleInt(int i);
 	public:
 		static void convert(const std::string&);
