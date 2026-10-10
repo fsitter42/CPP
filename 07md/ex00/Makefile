@@ -4,8 +4,7 @@ CXXFLAGS    = -Wall -Wextra -Werror -std=c++98 -Wpedantic
 DFLAGS      = -MMD -MP
 RM          = rm -f
 
-SRC         = main.cpp \
-              ScalarConverter.cpp
+SRC         = main.cpp
 
 OBJ_DIR     = obj
 
