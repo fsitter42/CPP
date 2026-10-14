@@ -1,7 +1,36 @@
+#include <climits>
 #include <iostream>
-#include <Array.hpp>
+#include "Array.hpp"
 
 #define MAX_VAL 750
+
+int isPositive_(int n)
+{
+    if (n < 0)
+        throw 42;
+    return n;
+}
+
+int main()
+{
+    try
+    {
+        int num = 2;
+        std::cout << isPositive_(num + 1) << "\n";
+    }
+    catch (int code)
+    {
+        std::cout << code << "\n";
+    }
+    Array<int> a(1);
+    Array<int> b(2);
+
+    std::cout << a.size() << "\n";
+
+    
+}
+
+/*
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -51,3 +80,5 @@ int main(int, char**)
     delete [] mirror;//
     return 0;
 }
+
+*/
