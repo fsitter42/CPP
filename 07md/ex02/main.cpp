@@ -1,9 +1,10 @@
 #include <climits>
+#include <cmath>
 #include <iostream>
 #include "Array.hpp"
 
 #define MAX_VAL 750
-
+/*
 int isPositive_(int n)
 {
     if (n < 0)
@@ -13,6 +14,8 @@ int isPositive_(int n)
 
 int main()
 {
+    int *i = new int();
+    std::cout << *i << std::endl;
     try
     {
         int num = 2;
@@ -27,10 +30,17 @@ int main()
 
     std::cout << a.size() << "\n";
 
+    int *x = &a[0];
+    *x = 4;
+    std::cout << *x << "\n";
+
+    std::cout << a[0] << "\n";
+
+
     
 }
 
-/*
+*/
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -80,5 +90,3 @@ int main(int, char**)
     delete [] mirror;//
     return 0;
 }
-
-*/
