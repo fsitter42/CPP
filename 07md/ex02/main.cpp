@@ -4,42 +4,6 @@
 #include "Array.hpp"
 
 #define MAX_VAL 750
-/*
-int isPositive_(int n)
-{
-    if (n < 0)
-        throw 42;
-    return n;
-}
-
-int main()
-{
-    int *i = new int();
-    std::cout << *i << std::endl;
-    try
-    {
-        int num = 2;
-        std::cout << isPositive_(num + 1) << "\n";
-    }
-    catch (int code)
-    {
-        std::cout << code << "\n";
-    }
-    Array<int> a(1);
-    Array<int> b(2);
-
-    std::cout << a.size() << "\n";
-
-    int *x = &a[0];
-    *x = 4;
-    std::cout << *x << "\n";
-
-    std::cout << a[0] << "\n";
-
-
-    
-}
-*/
 
 int main(int, char**)
 {
@@ -149,5 +113,4 @@ try {
     }
 
 }
-
 */
