@@ -79,6 +79,16 @@ void tryVector()
 	std::cout << a.capacity() << std::endl;
 	a.shrink_to_fit();
 	std::cout << a.capacity() << std::endl;
+
+	std::vector<int> b(a);
+	std::cout << "BBBBBBBBBB\n";
+	printVector(b);
+	
+	b.pop_back();
+	printVector(b);
+	printVector(a);
+	it = a.erase(it);
+	printVector(a);
 }
 
 void tryVector2()
@@ -99,6 +109,6 @@ void tryVector2()
 int main()
 {
 	tryVector();
-	tryVector2();
+	//tryVector2();
 }
 
