@@ -30,7 +30,7 @@ class ScalarConverter
 		static void f_handlePseudo(tVals& v);
 		static void f_handleFloat(double f, bool hex);
 		static void f_handleDouble(double d, bool hex);
-		static void f_handleInt(int i);
+		static void f_handleInt(int i, bool hex);
 	public:
 		static void convert(const std::string&);
 };

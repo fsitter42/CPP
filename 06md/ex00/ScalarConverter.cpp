@@ -42,7 +42,7 @@ void ScalarConverter::convert(const std::string& str)
             f_handleDouble(v.d, v.hex);
             break ;
         case 4:
-            f_handleInt(v.i);
+            f_handleInt(v.i, v.hex);
             break ;
         case 5:
             std::cout << "Non Valid Input\n";
@@ -118,6 +118,7 @@ bool ScalarConverter::f_is_double(const std::string& s, tVals& v)
     oss << d;
     std::string ds = oss.str();
     v.hex = (ds.find('.') != std::string::npos || ds.find('e') != std::string::npos);
+    std::cout << v.hex << std::endl;
 	return (true);
 }
 
@@ -136,6 +137,11 @@ bool ScalarConverter::f_is_int(const std::string& s, tVals& v)
 	if (l > INT_MAX || l < INT_MIN)
 		return (false);
 	v.i = static_cast<int>(l);
+	std::ostringstream oss;
+    oss << static_cast<double>(l);
+    std::string ds = oss.str();
+    v.hex = (ds.find('.') != std::string::npos || ds.find('e') != std::string::npos);
+    std::cout << v.hex << std::endl;
 	return (true);
 }
 
@@ -232,7 +238,7 @@ void ScalarConverter::f_handleDouble(double d, bool hex)
     std::cout << std::endl;
 }
 
-void ScalarConverter::f_handleInt(int i)
+void ScalarConverter::f_handleInt(int i, bool hex)
 {
     std::cout << "char: ";
     if (i < static_cast<int>(CHAR_MIN) || i > static_cast<int>(CHAR_MAX))
@@ -249,8 +255,17 @@ void ScalarConverter::f_handleInt(int i)
     std::cout << i << std::endl;
     std::cout << "float: ";
     float f = static_cast<float>(i);
-    std::cout << f << ".0" << "f" << std::endl;
+    if (f == std::floor(f) && hex == false)
+        std::cout << f << ".0";
+    else
+        std::cout << f;
+    std::cout << "f" << std::endl;
     std::cout << "double: ";
     double d = static_cast<double>(i);
-    std::cout << d << ".0" << std::endl;
+    std::cout << "double: ";
+    if (d == std::floor(d) && hex == false)
+        std::cout << d << ".0";
+    else
+        std::cout << d;
+    std::cout << std::endl;
 }
