@@ -21,9 +21,10 @@
 //	return 0;
 //}
 
-void printVector(std::vector<int>& a)
+template<typename C>
+void printVector(C& a)
 {	
-	for (int i = 0; i < a.size(); ++i)
+	for (size_t i = 0; i < a.size(); ++i)
 		std::cout << a[i];
 	std::cout << std::endl;	
 
@@ -58,8 +59,8 @@ void tryVector()
 	printVector(a);
 	revPrintVector(a);
 	
-	a.emplace(it, 5);
-	printVector(a);
+	//a.emplace(it, 5);
+	//printVector(a);
 
 	std::cout << a.front() << std::endl;
 	std::cout << a.back() << std::endl;
@@ -69,6 +70,7 @@ void tryVector()
 	try
 	{
 		std::vector<int>::iterator it = easyfind(a, 8);	
+		std::cout << *it << std::endl;
 	}
 	catch (...)
 	{
@@ -77,8 +79,8 @@ void tryVector()
 	std::cout << a.capacity() << std::endl;
 	a.reserve(16);
 	std::cout << a.capacity() << std::endl;
-	a.shrink_to_fit();
-	std::cout << a.capacity() << std::endl;
+	//a.shrink_to_fit();
+	//std::cout << a.capacity() << std::endl;
 
 	std::vector<int> b(a);
 	std::cout << "BBBBBBBBBB\n";
@@ -87,7 +89,7 @@ void tryVector()
 	b.pop_back();
 	printVector(b);
 	printVector(a);
-	it = a.erase(it);
+	it = b.erase(it);
 	printVector(a);
 }
 
@@ -106,9 +108,30 @@ void tryVector2()
 	std::cout << a.at(42) << std::endl;
 }
 
+void charVec()
+{
+	std::vector<char> charsA;
+	std::vector<char> charsB;
+
+	charsA.assign(4, 'a');
+	charsB.assign(5, 'b');
+
+	printVector(charsA);
+	printVector(charsB);
+
+	charsA.swap(charsB);
+
+	printVector(charsA);
+	printVector(charsB);
+
+
+	
+}
+
 int main()
 {
 	tryVector();
-	//tryVector2();
+	tryVector2();
+	charVec();
 }
 
