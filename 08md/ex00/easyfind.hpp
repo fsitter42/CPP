@@ -26,4 +26,25 @@ typename C::iterator easyfind(C& container, const int& toFind)
 	return (it);
 }
 
+template <typename C>
+typename C::const_reverse_iterator easyfindLast(const C& container, const int& toFind)
+{
+	typename C::const_reverse_iterator it;
+
+	it = std::find(container.rbegin(), container.rend(), toFind);
+	if (it == container.rend())
+		throw (42);	
+	return (it);
+}
+
+template<typename C>
+typename C::reverse_iterator easyfindLast(C& container, const int& toFind)
+{
+	typename C::reverse_iterator  it;
+	it = std::find(container.rbegin(), container.rend(), toFind);
+	if (it == container.rend())
+		throw (42);
+	return (it);
+}
+
 #endif // !EASYFIND_HPP
