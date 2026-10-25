@@ -4,7 +4,8 @@ CXXFLAGS    =	-Wall -Wextra -Werror -std=c++98 -Wpedantic
 DFLAGS      =	-MMD -MP
 RM          =	rm -f
 
-SRC         =	main.cpp
+SRC         =	main.cpp \
+		Span.cpp
 OBJ_DIR     =	obj
 
 OBJ         =	$(SRC:%.cpp=$(OBJ_DIR)/%.o)
