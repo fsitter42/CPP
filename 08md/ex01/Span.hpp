@@ -16,8 +16,8 @@ class Span
 		~Span();
 
 		void	addNumber(int n);
-		int	shortestSpan();
-		int	longestSpan();
+		int	shortestSpan() const;
+		int	longestSpan() const;
 };
 
 #endif // !SPAN_HPP
