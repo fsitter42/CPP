@@ -36,7 +36,29 @@ void Span::addNumber(int n)
 
 int Span::shortestSpan() const
 {
-	return (0);
+	int span;
+	int currentSpan;
+	std::vector<int> tmp;
+	std::vector<int>::iterator prev;
+	
+	if (this->slot_.size() < 2)
+		throw (ToSmallToCompareEx());
+
+	tmp.assign(slot_.begin(), slot_.end());
+	std::sort(tmp.begin(), tmp.end());
+	span = tmp.back() - *tmp.begin();
+	currentSpan = 0;
+	currentSpan++;
+	for (std::vector<int>::iterator it = tmp.begin(); it != tmp.end(); ++it)
+	{
+		prev = it - 1;
+		currentSpan = *it - *prev;
+		if (currentSpan < span)
+			span = currentSpan;
+		if (span == 0)
+			break ; 		
+	}
+	return (span);	
 }
 
 int Span::longestSpan()
