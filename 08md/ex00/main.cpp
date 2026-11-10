@@ -89,8 +89,8 @@ void tryVector()
 	b.pop_back();
 	printVector(b);
 	printVector(a);
-	it = b.erase(it);
-	printVector(a);
+	//it = b.erase(it);
+	//printVector(a);
 }
 
 void tryVector2()
