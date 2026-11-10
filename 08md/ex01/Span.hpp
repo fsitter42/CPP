@@ -2,6 +2,7 @@
 # define SPAN_HPP
 
 #include <vector>
+#include <cstddef>
 #include <typeinfo>
 #include <iterator>
 #include <exception>
