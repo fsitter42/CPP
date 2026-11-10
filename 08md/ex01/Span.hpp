@@ -14,8 +14,8 @@ class Span
 		std::vector<int>	slot_;	
 		Span();
 
-		std::vector<int>::iterator min_(void);
-		std::vector<int>::iterator max_(void);
+		std::vector<int>::const_iterator min_(void) const;
+		std::vector<int>::const_iterator max_(void) const;
 	public:
 		Span(std::size_t free_slots);		
 		Span(const Span& other);
@@ -24,10 +24,11 @@ class Span
 
 		void	addNumber(int n);
 		int	shortestSpan() const;
-		int	longestSpan();
+		int	longestSpan() const;
 		
 		class NoFreeSlotsEx : public std::exception
 		{
+		    public:
 			virtual const char* what() const throw()
 			{
 				return ("I am full of this ... ");
@@ -35,6 +36,7 @@ class Span
 		};	 	
 		class ToSmallToCompareEx : public std::exception
 		{
+		    public:
 			virtual const char* what() const throw()
 			{
 				return ("I am no big enough to do this ... ");
@@ -42,6 +44,7 @@ class Span
 		};
 		class WrongTypeEx : public std::exception
 		{
+		    public:
 			virtual const char* what() const throw()
 			{
 				return ("You are not my type ... ");
@@ -49,6 +52,7 @@ class Span
 		};
 		class EmptyInputEx : public std::exception
 		{
+		    public:
 			virtual const char* what() const throw()
 			{
 				return ("Thank you for nothing ... ");
