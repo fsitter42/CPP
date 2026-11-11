@@ -1,116 +1,81 @@
-#include <climits>
-#include <cmath>
+#include "MutantStack.hpp"
 #include <iostream>
-#include "Array.hpp"
+#include <list>
+#include <string>
+#include <algorithm>
+#include <stack>
 
-#define MAX_VAL 750
-
-int main(int, char**)
+void print(const MutantStack<int>& s)
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
-    }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
-
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
-    }
-    try
-    {
-        numbers[-2] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
-    delete [] mirror;//
-    return 0;
+	for (MutantStack<int>::const_iterator it = s.begin(); it != s.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;
 }
 
-/*
+void listCompare()
+{
+	MutantStack<int> m;
+	std::list<int>   l;
 
-struct Test {
-public:
-  static int _construct;
-  static int _bomb;
-  Test() {
-    if (_construct > _bomb)
-      throw Bomb();
-    _construct++;
-  };
-  
-  ~Test() {};
-  struct Bomb : public std::exception {
-  public:
-    const char *what() const throw() { return "BOOM!!!!!!"; }
-  };
-  Test &operator=(const Test &other) {
-    (void)other;
-    throw Bomb();
-  }
-  Test(const Test &other) {
-    (void)other;
-    throw Bomb();
-  }
-};
+	for (int i = 0; i < 5; i++)
+	{
+		m.push(i * 3);
+		l.push_back(i * 3);
+	}
+	std::cout << m.top() << " " << l.back() << std::endl;
+	m.pop();
+	l.pop_back();
+	std::cout << m.size() << " " << l.size() << std::endl;
+	print(m);
+	for (std::list<int>::iterator it = l.begin(); it != l.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+}
 
-int Test::_construct = 0;
-int Test::_bomb = 100;
+void emptyAndWrite()
+{
+	MutantStack<int> m;
+	std::cout << (m.begin() == m.end()) << std::endl;
+
+	m.push(1);
+	m.push(2);
+	*m.begin() = 42;
+	print(m);
+	std::cout << *std::find(m.begin(), m.end(), 2) << std::endl;
+}
+
+void copyTest()
+{
+	MutantStack<int> a;
+	a.push(1);
+	a.push(2);
+
+	MutantStack<int> b(a);
+	MutantStack<int> c;
+	c = a;
+	a.push(3);
+	std::cout << a.size() << " " << b.size() << " " << c.size() << std::endl;
+
+	std::stack<int> s(a);
+	MutantStack<int> d(s);
+	std::cout << d.size() << std::endl;
+}
+
+void stringTest()
+{
+	MutantStack<std::string> m;
+	m.push("a");
+	m.push("b");
+	for (MutantStack<std::string>::iterator it = m.begin(); it != m.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+}
 
 int main()
 {
-
-
-
-try {
-    Test::_construct = 0;
-    Array<Test> j(5);
-    Array<Test> k;
-    Test::_construct = 0;
-    Test::_bomb = 3;
-    k = j;
-  } catch (std::exception &e) {
-    std::cout << e.what() << std::endl;
-  }
-
-  try {
-      Array<Test> h(5);
-      Array<Test> i;
-      Test::_construct = 0;
-      Test::_bomb = 3;
-  
-      i = h;
-    } catch (std::exception &e) {
-      std::cout << e.what() << std::endl;
-    }
-
+	listCompare();
+	emptyAndWrite();
+	copyTest();
+	stringTest();
+	return (0);
 }
-*/
